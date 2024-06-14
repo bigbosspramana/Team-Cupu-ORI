@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Wisata Indonesia</title>
+    <link rel="icon" href="../Aset/img/logo-head.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="kiri-layar">
+            <div class="head">
+                <img src="../Aset/img/logo-head.png" alt="Logo Wisata Indonesia">
+                <div class="font">
+                    <p class="h2">Wisata</p>
+                    <p class="h2">Indonesia</p>
+                </div>
+            </div>
+        </div>
+        <div class="kanan-layar">
+            <div class="btn-vendor">
+                <button id="btn-wisatawan" class="tablink tab-vendor1" onclick="openPage('wisatawan', this)" id="defaultOpen" style="color: black; background-color: transparent;">Wisatawan</button>
+                <button id="btn-vendor"class="tablink tab-vendor" onclick="openPage('vendor', this)" style="color: rgb(0, 0, 0); background-color: transparent; width: 110px;"> Vendor </button>
+            </div>
+
+            <div id="wisatawan" class="tabcontent">
+                <div class="right-box">
+                    <p class="h4">Registrasi Akun Wisatawan</p>
+                    <form action="#" id="myForm">
+                        <div class="account-form row">
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email<span> *</span></label><br>
+                                <input type="text" class="form-control" id="email" placeholder="Email123@gmail.com">
+                            </div>
+                            <div class="col-sm-6 col-lg-12 col-xxl-6">
+                                <label for="katasandi" class="form-label acc-mt-10">Katasandi<span> *</span></label><br>
+                                <input type="password" class="form-control" id="katasandi" placeholder="Kata Sandi">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-12 col-xxl-6">
+                                <label for="konfirmasikatsan" class="form-label acc-mt-10">Konfirmasi Katasandi<span>
+                                        *</span></label><br>
+                                <input type="password" class="form-control" id="konfirmasikatsan"
+                                    placeholder="Konfirmasi Kata Sandi">
+                            </div>
+
+                        </div>
+                        <div class="wisatawan-data row">
+                            <p class="h6">Biodata Diri</p>
+
+                            <div class="col-12">
+                                <label for="namauser" class="form-label acc-mt-10">Nama Lengkap<span>
+                                        *</span></label><br>
+                                <input type="text" class="form-control" id="namauser" placeholder="Nama Lengkap">
+                            </div>
+
+                            <div class="col-sm-3 col-lg-12 col-xxl-4">
+                                <label for="inputGender" class="form-label acc-mt-10">Jenis Kelamin<span> *</span></label><br>
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" value="Pria" class="btn-check out-label" name="btnradio"
+                                        id="btnradio1" autocomplete="off">
+                                    <label style="width: 70px;" class="btn btn-outline-primary"
+                                        for="btnradio1">Pria</label>
+
+                                    <input type="radio" value="Wanita" class="btn-check out-label" name="btnradio"
+                                        id="btnradio2" autocomplete="off">
+                                    <label class="btn btn-outline-danger" for="btnradio2">Wanita</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-9 col-lg-12 col-xxl-8">
+                                <label for="tglLahir" class="form-label acc-mt-10">Tanggal Lahir<span>
+                                        *</span></label><br>
+                                <input type="date" class="form-control" id="tglLahir" placeholder="mm/dd/yyyy">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-12">
+                                <label for="kota" class="form-label acc-mt-10">Kota<span> *</span></label><br>
+                                <select name="Kota" id="kota" class="form-select">
+                                    <option value="pilihkota" id="pilihKota" checked>Pilih Kota</option>
+                                    <option value="jakarta">Jakarta</option>
+                                    <option value="bandung">Bandung</option>
+                                    <option value="manokwari">Manokwari</option>
+                                    <option value="bali">Bali</option>
+                                    <option value="yogyakarta">Yogyakarta</option>
+                                    <option value="surabaya">Surabaya</option>
+                                    <option value="medan">Medan</option>
+                                    <option value="makassar">Makassar</option>
+                                    <option value="malang">Malang</option>
+                                    <option value="lombok">Lombok</option>
+                                    <option value="semarang">Semarang</option>
+                                    <option value="palembang">Palembang</option>
+                                    <option value="manado">Manado</option>
+                                    <option value="batam">Batam</option>
+                                    <option value="banjarmasin">Banjarmasin</option>
+                                    <option value="solo">Solo (Surakarta)</option>
+                                    <option value="bogor">Bogor</option>
+                                    <option value="denpasar">Denpasar</option>
+                                    <option value="padang">Padang</option>
+                                    <option value="balikpapan">Balikpapan</option>
+                                    <option value="pontianak">Pontianak</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-12">
+                                <label for="notelp" class="form-label acc-mt-10">Nomor Telepon<span>
+                                        *</span></label><br>
+                                <input type="text" class="form-control" id="notelp" placeholder="Nomor Telepon">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-send w-10 acc-mt-10" value="submit">
+                            Send
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="vendor" class="tabcontent" style="display: none;">
+                <div class="right-box">
+                    <p class="h4">Registrasi Akun Vendor</p>
+                    <form action="#" id="myForm">
+                        <div class="account-form row">
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email<span> *</span></label><br>
+                                <input type="text" class="form-control" id="email" placeholder="Email123@gmail.com">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-6 col-xxl-6">
+                                <label for="katasandi" class="form-label acc-mt-10">Katasandi<span> *</span></label><br>
+                                <input type="password" class="form-control" id="katasandi" placeholder="Kata Sandi">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-6 col-xxl-6">
+                                <label for="konfirmasikatsan" class="form-label acc-mt-10">Konfirmasi Katasandi<span>
+                                        *</span></label><br>
+                                <input type="password" class="form-control" id="konfirmasikatsan"
+                                    placeholder="Konfirmasi Kata Sandi">
+                            </div>
+                        </div>
+                        <div class="wisatawan-data row">
+                            <p class="h6">Biodata Vendor</p>
+
+                            <div class="col-12">
+                                <label for="namauser" class="form-label acc-mt-10">Nama Vendor<span>
+                                        *</span></label><br>
+                                <input type="text" class="form-control" id="namauser" placeholder="Nama Vendor">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-7 col-xxl-7">
+                                <label for="alamat" class="form-label acc-mt-10">Alamat<span> *</span></label><br>
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-5 col-xxl-5">
+                                <label for="notelp" class="form-label acc-mt-10">Nomor Telepon<span>
+                                        *</span></label><br>
+                                <input type="text" class="form-control" id="notelp" placeholder="Nomor Telepon">
+                            </div>
+                        </div>
+                        <div class="wisatawan-data row">
+                            <p class="h6">Sosial Media</p>
+
+                            <div class="col-12">
+                                <label for="instagram" class="form-label acc-mt-10">Instagram</label><br>
+                                <input type="text" class="form-control" id="instagram" placeholder="Instagram">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-12 col-xxl-6">
+                                <label for="tiktok" class="form-label acc-mt-10">Tiktok</label><br>
+                                <input type="text" class="form-control" id="tiktok" placeholder="Tiktok">
+                            </div>
+
+                            <div class="col-sm-6 col-lg-12 col-xxl-6">
+                                <label for="facebook" class="form-label acc-mt-10">Facebook</label><br>
+                                <input type="text" class="form-control" id="facebook" placeholder="Facebook">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-send w-10 acc-mt-10" value="submit">
+                            Send
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

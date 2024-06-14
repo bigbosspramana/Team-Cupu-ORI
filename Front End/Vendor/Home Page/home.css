@@ -1,0 +1,7 @@
+.dashboard{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../Aset/img/pantai.jpg");
+    background-repeat: no-repeat;
+    height: 40rcap;
+    background-size: cover;
+}
+

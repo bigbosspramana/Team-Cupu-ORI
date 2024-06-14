@@ -1,0 +1,330 @@
+@font-face {
+	font-family: 'HindSiliguriSB';
+	src: url('../Aset/font/Hind_Siliguri/HindSiliguri-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriR';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriB';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DancingScriptB';
+    src: url('../Aset/font/Dancing_Script/DancingScript-Bold.woff') format('woff');
+}
+
+* {
+	font-family: 'HindSiliguriR', sans-serif;
+}
+
+body {
+	/* background-image: radial-gradient(#0096C7, rgb(250, 250, 250)); */
+	/* background-color: rgb(250, 250, 250); */
+	/* background-image: linear-gradient(to bottom right, rgb(250, 250, 250),#0096C7 50%, rgb(250, 250, 250)); */
+	background-image: linear-gradient(#8d8d8d60,#8d8d8d60), url(../Aset/img/aset5.jpg);
+	background-size: cover;
+	/* background-position: center; */
+	background-attachment: fixed;
+	/* background-repeat: no-repeat; */
+}
+
+.form-product .title {
+	font-family: 'HindSiliguriB', sans-serif;
+	/* color: #192637; */
+	color: white;
+}
+
+.form-product .sub-title {
+	font-family: 'HindSiliguriSB', sans-serif;
+	color: #192637;
+	/* color: white; */
+}
+
+.form-product label {
+	color: #192637;
+	font-weight: 100px;
+}
+
+button.navbar-toggler {
+	border: none;
+}
+
+button.navbar-toggler:focus {
+	box-shadow: none;
+}
+
+button.navbar-toggler i {
+	color: white;
+}
+
+.navbar {
+	box-shadow: 0 0 10px 0 rgba(162, 162, 162, 0.526);
+	position: relative;
+	top: 15px;
+	z-index: 1000;
+	margin: 0 auto;
+	width: 98%;
+	padding: 14px 10px;
+	border-radius: 8px;
+	background-color: #46c3dc;
+}
+
+.container-fluid .navbar-brand {
+	color: white;
+}
+
+.container-fluid a {
+	color: white;
+	border-radius: 20px;
+	margin-right: 0;
+	transition: 1s;
+}
+
+.container-fluid a:hover {
+	color: black;
+	animation: buttonNav 1s both;
+	margin-right: 10px;
+}
+
+.container-fluid .navbar-brand p {
+	font-family: 'DancingScriptB', 'sans-serif';
+	margin: auto 10px;
+}
+
+.collapse .sukasukasaya {
+	display: flex;
+}
+
+form .search {
+	border-radius: 20px;
+	transition: 0.5s;
+}
+
+form .search:focus-within {
+	box-shadow: 0 0 15px 3px rgb(206, 206, 206);
+}
+
+form .search i {
+	color: rgb(147, 147, 147);
+}
+
+.search input {
+	border: none;
+	width: 90%
+}
+
+.search input:focus {
+	border: none;
+	outline: none;
+}
+
+.container-fluid .collapse .foto-profile {
+	display: flex;
+	width: 40px;
+	height: 40px;
+	background-color: #5c5c5d;
+	border-radius: 20px;
+	margin-left: 10px;
+}
+
+.foto-profile i {
+	font-size: 22px;
+	margin: auto;
+	border-radius: 20px;
+	color: #b6b6b6;
+}
+
+.add-product {
+	width: 80%;
+	margin: 50px auto;
+	padding: 30px;
+	border-radius: 10px;
+	background-color: #ade8f4b5;
+	/* background-image: url(../Aset/img/aset2.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat; */
+	/* background-color: #90E0EF; */
+	backdrop-filter: blur(8px);
+	box-shadow: 0 0 15px 3px rgba(193, 193, 193, 0.422);
+}
+
+.add-product p.title {
+	text-align: center;
+	color: #192637;
+	/* color: white; */
+}
+
+.add-product label {
+	margin-top: 1%;
+	color: #192637;
+	/* color: white; */
+}
+
+.form-product .add-item-container {
+	margin: 0 auto;
+}
+
+.add-item-container .m-right {
+	text-align: right;
+}
+
+.add-item-container{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.form-product .add-item-btn {
+	padding: 8px;
+	border: none;
+	border-radius: 8px;
+	/* background-color: #023E8A; */
+	background-color: #0096C7;
+	color: white;
+	margin: 20px 0 10px;
+	width: 180px;
+	transition: 1s;
+}
+
+.form-product .add-item-btn:hover {
+	background-color: #00B4D8;
+	color: white;
+}
+
+.form-product .add-item-btn:active {
+	background-color: #03045E;
+	color: white;
+}
+
+.form-product .submit {
+	padding: 8px;
+	border: none;
+	border-radius: 8px;
+	/* background-color: #023E8A; */
+	background-color: #0096C7;
+	color: white;
+	margin: 20px 0 10px;
+	width: 120px;
+	transition: 1s;
+}
+
+.form-product .submit:hover {
+	background-color: #00B4D8;
+	color: white;
+}
+
+.form-product .submit:active {
+	background-color: #03045E;
+	color: white;
+}
+
+.add-item-container .margin {
+	margin: 0 1%;
+}
+
+.add-item-btn i {
+	margin: 0 5px;
+}
+
+.submit i {
+	margin: 0 5px;
+}
+
+#item-container p.h4 {
+	margin-top: 2%;
+	margin-bottom: 0;
+	color: #192637;
+	font-family: 'HindSiliguriB', sans-serif;
+}
+
+#item-container p.h5 {
+	margin-bottom: 0;
+	margin-top: 2%;
+	color: #192637;
+	font-family: 'HindSiliguriSB', sans-serif;
+}
+
+#item-container form {
+	margin-bottom: 2%;
+}
+
+#item-container .desc-item {
+	margin-top: 0;
+}
+
+#item-container input.item-quantity:after{
+	border: none;
+	box-shadow: none;
+}
+
+#item-container .add-item-container button i {
+	margin: 0 8px;
+}
+
+#item-container button.number {
+	color: #192637;
+	border: 1px solid #192637;
+	background-color: white;
+}
+
+#item-container button.number:hover {
+	color: white;
+	background-color: #023E8A;
+}
+
+@keyframes buttonNav {
+	from {
+		background-color: #EAF4F4;
+		border-radius: 20px;
+	}
+
+	to {
+		background-color: #EAF4F4;
+		border-radius: 20px;
+	}
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        margin-top: 0;
+    }
+	50% {
+		opacity: 0.5;
+		margin-top: 0.5%
+	}
+    100% {
+        opacity: 1;
+        margin-top: 1%;
+    }
+}
+
+@media (max-width: 756px){
+	.add-item-container .m-right {
+		text-align: start;
+	}
+
+	#item-container .m-right {
+		text-align: start;
+		margin-top: 0;
+	}
+
+	.form-product .add-item-btn {
+		width: 100%;
+	}
+
+	.form-product .submit {
+		width: 100%;
+	}
+}
+
+@media (max-width: 992px){
+	.container-fluid a {
+		padding: 8px;
+	}
+}
