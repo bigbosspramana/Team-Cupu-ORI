@@ -358,6 +358,18 @@ form .search i {
 	background-color: #c92f3f;
 	color: white;
 }
+
+.image {
+	background-color: #f9f9f9;
+	width: 80%;
+	padding: 20px;
+	border-radius: 15px;
+	margin: 0 auto 40px;
+}
+
+.image p.h4 {
+	margin-bottom: 20px;
+}
 /* Gallery */
 .image .container {
 	width: 100%;
@@ -402,7 +414,6 @@ form .search i {
 	max-height: 100%;
 	object-fit: cover;
 }
-
 .image .gallery .photo-container .delete-btn,
 .image .gallery .photo-container .view-btn {
 	position: absolute;
@@ -454,7 +465,7 @@ form .search i {
 	position: fixed;
 	z-index: 1000;
 	left: 0;
-	top: 0;
+	top: 50%;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
@@ -486,10 +497,19 @@ form .search i {
 .paket {
 	width: 80%;
 	background-color: rgb(250, 250, 250);
-	box-shadow: 0 0 15px 0 rgba(179, 179, 179, 0.453);
 	border-radius: 15px;
 	margin: 0 auto 2%;
 	padding: 30px;
+	position: relative;
+}
+
+.paket-1 {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	flex-direction: column;
+	border-radius: 15px;
 }
 
 .paket p.h4 {
@@ -497,7 +517,8 @@ form .search i {
 }
 
 .paket .urutan-paket {
-	background-color: rgb(250, 250, 250);
+	/* background-color: rgb(250, 250, 250); */
+	margin: 10px;
 	box-shadow: 0 0 15px 0 rgba(99, 99, 99, 0.415);
 	width: 250px;
 	border-radius: 15px;
@@ -596,12 +617,6 @@ form .search i {
 	to {
 		background-color: #EAF4F4;
 		border-radius: 20px;
-	}
-}
-
-@media (max-width: 992px){
-	.container-fluid a {
-		padding: 8px;
 	}
 }
 

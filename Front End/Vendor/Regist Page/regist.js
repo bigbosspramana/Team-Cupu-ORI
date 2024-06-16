@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.querySelectorAll('#formWisatawan input, #formWisatawan select').forEach(input => input.style.border = '');
 
-        if (!email || !password || !confirmPassword || !fullName || !gender || !birthDate || !city || !phoneNumber) {
-            alert('Silahkan isi form data yang dibutuhkan.');
-        }
+        // if (!email || !password || !confirmPassword || !fullName || !gender || !birthDate || !city || !phoneNumber) {
+        //     alert('Silahkan isi form data yang dibutuhkan.');
+        // }
 
         const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+$/;
         if (!email.match(emailRegex)) {
@@ -91,20 +91,20 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        if (isValid) {
-            alert('Form berhasil disubmit!');
-            console.log('Data Wisatawan:', {
-                email,
-                password,
-                fullName,
-                gender,
-                birthDate,
-                city,
-                phoneNumber
-            });
-        } else {
-            alert('Silakan isi semua field yang diperlukan');
-        }
+        // if (isValid) {
+        //     alert('Form berhasil disubmit!');
+        //     console.log('Data Wisatawan:', {
+        //         email,
+        //         password,
+        //         fullName,
+        //         gender,
+        //         birthDate,
+        //         city,
+        //         phoneNumber
+        //     });
+        // } else {
+        //     alert('Silakan isi semua field yang diperlukan');
+        // }
     });
 });
 
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isValid = false;
     }
 
-    formVendor.addEventListener('submit', function (event) {
+    formVendor.addEventListener('submit', async function (event) {
         // console.log("halo")
         event.preventDefault();
 
@@ -134,9 +134,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const vendorName = document.getElementById('namauser-v').value;
         const address = document.getElementById('alamat-v').value;
         const phoneNumberVendor = document.getElementById('notelp-v').value;
-        const instagram = document.getElementById('instagram').value;
-        const tiktok = document.getElementById('tiktok').value;
-        const facebook = document.getElementById('facebook').value;
 
         let isValid = true;
 
@@ -146,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!emailVendor.match(emailRegex)) {
             alert('Email harus berupa alamat email yang valid (contoh: user@example.com).');
             displayError(document.getElementById('email-v'));
+            isValid = false;
             return;
         }
 
@@ -191,25 +189,53 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false; // Set isValid to false if phone number is empty
         }
 
-        if (isValid) {
+        // const formData = {
+        //     email: document.getElementById('email-v').value,
+        //     katasandi: document.getElementById('katasandi-v').value,
+        //     konfirmasiKatasandi: document.getElementById('konfirmasikatsan-v').value,
+        //     namaVendor: document.getElementById('namauser-v').value,
+        //     alamat: document.getElementById('alamat-v').value,
+        //     nomorTelepon: document.getElementById('notelp-v').value,
+        //     instagram: document.getElementById('instagram').value,
+        //     tiktok: document.getElementById('tiktok').value,
+        //     facebook: document.getElementById('facebook').value,
+        // };
 
-            console.log('Data Vendor:', {
-                emailVendor,
-                passwordVendor,
-                vendorName,
-                address,
-                phoneNumberVendor
-            });
+        // if (isValid) {
+        //     const response = await fetch('/register/vendor', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify(formData)
+        //     });
+        //     const result = await response.json();
+        //     alert('Registrasi Vendor berhasil!');
+        //     console.log(result);
+        // } else {
+        //     console.error('Error:', error);
+        //     alert('Registrasi Vendor gagal!');
+        // }
 
-            // let dataVendor = { emailVendor, passwordVendor, vendorName, address, cityVendor, phoneNumberVendor };
-            // if (instagram) dataVendor.instagram = instagram;
-            // if (tiktok) dataVendor.tiktok = tiktok;
-            // if (facebook) dataVendor.facebook = facebook;
+        // if (isValid) {
 
-            alert('Data Vendor Berhasil ditambahkan.')
-        } else {
-            alert('Silakan isi semua field yang diperlukan');
-        }
+        //     console.log('Data Vendor:', {
+        //         emailVendor,
+        //         passwordVendor,
+        //         vendorName,
+        //         address,
+        //         phoneNumberVendor
+        //     });
+
+        //     // let dataVendor = { emailVendor, passwordVendor, vendorName, address, cityVendor, phoneNumberVendor };
+        //     // if (instagram) dataVendor.instagram = instagram;
+        //     // if (tiktok) dataVendor.tiktok = tiktok;
+        //     // if (facebook) dataVendor.facebook = facebook;
+
+        //     alert('Data Vendor Berhasil ditambahkan.')
+        // } else {
+        //     alert('Silakan isi semua field yang diperlukan');
+        // }
     });
 });
 

@@ -32,25 +32,25 @@
                         <a class="nav-link" aria-current="page" href="../Home Page/homePage.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Detail Transaksi/index.html">Detail Transaksi</a>
+                        <a class="nav-link" href="../Detail Transaksi/.html">Detail Transaksi</a>
                     </li>
                 </ul>
                 <div class="sukasukasaya">
-                    <div class="col-sm-11 col-lg-10">
+                    <div class="col-10 col-sm-11 col-lg-10">
                         <form class="d-flex" role="search">
-                            <div class="search form-control me-2">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="search" id="search" placeholder="Search" aria-label="Search">
-                            </div>
+                          <div class="search form-control me-2">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search" id="search" placeholder="Search" aria-label="Search">
+                          </div>
                         </form>
-                    </div>
-                    <div class="col-sm-1 col-lg-2">
+                      </div>
+                      <div class="col-2 col-sm-1 col-lg-2">
                         <a href="../Profile (Vendor)/index.html">
-                            <div class="foto-profile">
-                              <i class="fa-solid fa-user"></i>
-                            </div>
+                          <div class="foto-profile">
+                            <i class="fa-solid fa-user"></i>
+                          </div>
                         </a>
-                    </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -155,21 +155,24 @@
                 </div>
             </div>
         </div>
-        <div class="image">
-            <div class="image container">
-                <p class="h4">Dokumentasi Foto</p>
-                <input type="file" id="file-input" accept="image/*" hidden>
-                <div class="gallery" id="gallery">
-                    <div class="photo-container add-photo-container" id="add-photo">
-                        <div class="add-photo">
-                            <i class="fa-solid fa-image"></i>
-                            <button class="upload-btn" onclick="document.getElementById('file-input').click()">Add Photo</button>
-                        </div>
+    </div>
+
+    <div class="image">
+        <div class="image container">
+            <p class="h4">Dokumentasi Foto</p>
+            <input type="file" id="file-input" accept="image/*" hidden>
+            <div class="gallery" id="gallery">
+                <div class="photo-container add-photo-container" id="add-photo">
+                    <div class="add-photo">
+                        <i class="fa-solid fa-image"></i>
+                        <button class="upload-btn" onclick="document.getElementById('file-input').click()">Add Photo</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- The Modal -->
+        <!-- The Modal -->
+        <div class="bg-modal">
             <div id="myModal" class="modal">
                 <span class="close">&times;</span>
                 <div class="modal-content" id="modal-content"></div>
@@ -182,12 +185,14 @@
             <p class="h4">Paket Wisata</p>
             <a href="">
                 <div class="urutan-paket">
-                    <div class="kanan">
-                        <div class="img"></div>
-                    </div>
-                    <div class="kiri">
-                        <p class="h6" style="text-decoration: none;">Nama Paket</p>
-                        <p class="harga">Harga</p>
+                    <div class="new-paket">
+                        <div class="kanan">
+                            <div class="img"></div>
+                        </div>
+                        <div class="kiri">
+                            <p class="h6" style="text-decoration: none;">Nama Paket</p>
+                            <p class="harga">Harga</p>
+                        </div>
                     </div>
                 </div>
             </a>

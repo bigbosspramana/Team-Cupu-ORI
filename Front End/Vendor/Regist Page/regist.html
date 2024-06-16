@@ -87,27 +87,27 @@
                                     <label for="kota-w" class="form-label acc-mt-10">Kota<span> *</span></label><br>
                                     <select name="Kota" id="kota-w" class="form-select">
                                         <option value="pilihkota" id="pilihKota" checked>Pilih Kota</option>
-                                        <option value="jakarta">Jakarta</option>
-                                        <option value="bandung">Bandung</option>
-                                        <option value="manokwari">Manokwari</option>
-                                        <option value="bali">Bali</option>
-                                        <option value="yogyakarta">Yogyakarta</option>
-                                        <option value="surabaya">Surabaya</option>
-                                        <option value="medan">Medan</option>
-                                        <option value="makassar">Makassar</option>
-                                        <option value="malang">Malang</option>
-                                        <option value="lombok">Lombok</option>
-                                        <option value="semarang">Semarang</option>
-                                        <option value="palembang">Palembang</option>
-                                        <option value="manado">Manado</option>
-                                        <option value="batam">Batam</option>
-                                        <option value="banjarmasin">Banjarmasin</option>
-                                        <option value="solo">Solo (Surakarta)</option>
-                                        <option value="bogor">Bogor</option>
-                                        <option value="denpasar">Denpasar</option>
-                                        <option value="padang">Padang</option>
-                                        <option value="balikpapan">Balikpapan</option>
-                                        <option value="pontianak">Pontianak</option>
+                                        <option value="Jakarta">Jakarta</option>
+                                        <option value="Bandung">Bandung</option>
+                                        <option value="Manokwari">Manokwari</option>
+                                        <option value="Bali">Bali</option>
+                                        <option value="Yogyakarta">Yogyakarta</option>
+                                        <option value="Surabaya">Surabaya</option>
+                                        <option value="Medan">Medan</option>
+                                        <option value="Makassar">Makassar</option>
+                                        <option value="Malang">Malang</option>
+                                        <option value="Lombok">Lombok</option>
+                                        <option value="Semarang">Semarang</option>
+                                        <option value="Palembang">Palembang</option>
+                                        <option value="Manado">Manado</option>
+                                        <option value="Batam">Batam</option>
+                                        <option value="Banjarmasin">Banjarmasin</option>
+                                        <option value="Solo">Solo (Surakarta)</option>
+                                        <option value="Bogor">Bogor</option>
+                                        <option value="Denpasar">Denpasar</option>
+                                        <option value="Padang">Padang</option>
+                                        <option value="Balikpapan">Balikpapan</option>
+                                        <option value="Pontianak">Pontianak</option>
                                     </select>
                                 </div>
 
@@ -160,7 +160,7 @@
                             </div>
 
                             <div class="col-sm-6 col-lg-7 col-xxl-7">
-                                <label for="alamat-v" class="form-label acc-mt-10">Alamat-v<span> *</span></label><br>
+                                <label for="alamat-v" class="form-label acc-mt-10">Alamat<span> *</span></label><br>
                                 <input type="text" class="form-control" id="alamat-v" placeholder="Alamat">
                             </div>
 
@@ -205,18 +205,20 @@
         document.getElementById('formWisatawan').addEventListener('submit', async function (e) {
             e.preventDefault();
 
+            // Mengambil nilai dari form
             const formData = {
-                email: document.getElementById('email-w').value,
-                katasandi: document.getElementById('katasandi-w').value,
-                konfirmasiKatasandi: document.getElementById('konfirmasikatsan-w').value,
-                namaLengkap: document.getElementById('namauser-w').value,
-                jenisKelamin: document.getElementById('jkel-w').value,
-                tanggalLahir: document.getElementById('tglLahir').value,
-                kota: document.getElementById('kota-w').value,
-                nomorTelepon: document.getElementById('notelp-w').value,
+                emailw: document.getElementById('email-w').value,
+                passwordw: document.getElementById('katasandi-w').value,
+                konfirmasipasswordw: document.getElementById('konfirmasikatsan-w').value,
+                namaLengkapw: document.getElementById('namauser-w').value,
+                jenisKelaminw: document.getElementById('jkel-w').value,
+                tanggalLahirw: document.getElementById('tglLahir').value,
+                kotaw: document.getElementById('kota-w').value,
+                nomorTeleponw: document.getElementById('notelp-w').value
             };
 
             try {
+                // Mengirim data ke server
                 const response = await fetch('/register/wisatawan', {
                     method: 'POST',
                     headers: {
@@ -224,9 +226,16 @@
                     },
                     body: JSON.stringify(formData)
                 });
+
                 const result = await response.json();
-                alert('Registrasi Wisatawan berhasil!');
-                console.log(result);
+
+                if (response.ok) {
+                    alert('Akses Tokenmu: ' + result.access_token);
+                    console.log(result);
+                    formWisatawan.reset(); // Reset form setelah submit berhasil
+                } else {
+                    throw new Error(result.message || 'Gagal melakukan registrasi');
+                }
             } catch (error) {
                 console.error('Error:', error);
                 alert('Registrasi Wisatawan gagal!');
