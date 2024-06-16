@@ -1,0 +1,180 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <title>Home Page</title>
+</head>
+
+<body style="overflow-x: hidden;">
+
+    <!-- NavBar -->
+    <div class="dashboard">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <div class="navbar-brand d-flex">
+              <img src="../Aset/img/logo-head-transformed 2.png" alt="Bootstrap" width="35" height="35">
+              <p>Wisata Indonesia</p>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" id="home-page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="populer" href="">Populer</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Pariwisata
+                  </a>
+                  <ul class="dropdown-menu" >
+                    <li><a class="dropdown-item" id="gunung" href="#">Pegunungan</a>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" id="pantai" href="#">Pantai</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" id="pulau" href="#">Pulau</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <button type="button" class="btn btn-secondary" style="margin-right: 12px;">Daftar</button>
+              <button type="button" id="tologin" class="btn btn-primary">Daftar</button>
+          </div>
+      </div>
+  </nav>
+       <!-- image -->
+       <div class="image">
+        <div class="image1"></div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+      </div>
+      <h3 style="margin-bottom: 2%; margin-left: 205px; margin-top: 320px;">Wisata Indonesia</h3>
+      <input class="form-control search-box tengah" list="datalistOptions" id="exampleDataList"
+        placeholder="Type to search...">
+      <datalist id="datalistOptions">
+      </datalist>
+    </div>
+    <hr>
+
+    <!-- Tentang Web Ini -->
+    <div class="tentang-web">
+      <div class="about">
+        <div class="kiri">
+          <div class="box left" style="background-image: url(../Aset/img/bali.jpg);">
+          </div>
+        </div>
+        <div class="kanan">
+          <h2>Judul</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ad culpa atque ut pariatur quod, veniam dignissimos nobis quaerat, dolores voluptatum possimus fugit iusto aliquid quia aspernatur in repudiandae maiores.</p>
+        </div>
+      </div>
+      <div class="about">
+        <div class="kiri">
+          <h2>Judul</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ad culpa atque ut pariatur quod, veniam dignissimos nobis quaerat, dolores voluptatum possimus fugit iusto aliquid quia aspernatur in repudiandae maiores.</p>      
+        </div>
+        <div class="kanan">
+          <div class="box right" style="background-image: url(../Aset/img/bali.jpg);"></div>
+        </div>
+      </div>
+      <div class="about">
+        <div class="kiri">
+          <div class="box left" style="background-image: url(../Aset/img/bali.jpg);"></div>
+        </div>
+        <div class="kanan">
+          <h2>Judul</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ad culpa atque ut pariatur quod, veniam dignissimos nobis quaerat, dolores voluptatum possimus fugit iusto aliquid quia aspernatur in repudiandae maiores.</p>
+        </div>
+      </div>
+      <div class="about">
+        <div class="kiri">
+          <h2>Judul</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium ad culpa atque ut pariatur quod, veniam dignissimos nobis quaerat, dolores voluptatum possimus fugit iusto aliquid quia aspernatur in repudiandae maiores.</p>
+        </div>
+        <div class="kanan">
+          <div class="box right" style="background-image: url(../Aset/img/bali.jpg);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wisata -->
+    <div class="container-transparan text-center">
+      <div class="row justify-content-center">  
+      <h2 style="margin-bottom: 23px;">Wisata</h2>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 h-1000 clickable-text">
+          <img src="../Aset/img/Makassar-Pulau.jpg" id="makassar" class="card-img-top img-fluid" alt="Makassar">
+          <div class="card-body">
+            <h5 class="card-title" href="#">Pulau</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p> 
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 h-1000 clickable-text">
+          <img src="../Aset/img/Makassar-Pulau.jpg" id="makassar" class="card-img-top img-fluid" alt="Makassar">
+          <div class="card-body">
+            <h5 class="card-title">Pantai</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 h-1000 clickable-text">
+          <img src="../Aset/img/Makassar-Pulau.jpg" id="makassar" class="card-img-top img-fluid" alt="Makassar">
+          <div class="card-body">
+            <h5 class="card-title clickable-text">Pegunungan</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- footer -->
+    <div class="footer-section">
+      <div class="footer-item">
+        <h2>Company</h2>
+        <p><a href="#">About Us</a></p>
+        <p><a href="#">Contact Us</a></p>
+        <p><a href="#">Our Services</a></p>
+        <p><a href="#">Privacy Policy</a></p>
+      </div>
+      <div class="footer-item">
+        <h2>Get Help</h2>
+        <p><a href="#">FAQ</a></p>
+        <p><a href="#">Payment Options</a></p>
+      </div>
+      <div class="footer-item social">
+        <h2>Follow Us</h2>
+        <ul>
+          <li><i class="fa-brands fa-instagram"></i></li>
+          <li><i class="fa-brands fa-x-twitter"></i></li>
+          <li><i class="fa-brands fa-facebook"></i></li>
+        </ul>
+      </div>
+    </div>
+</body>
+<script src="home.js"></script>
+
+</html>
