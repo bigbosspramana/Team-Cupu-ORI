@@ -103,12 +103,12 @@ Penggunaan
   - **Tambahkan Paket** : Pada bagian ini Vendor dapat menambahkan Produk dan detail produknya.
   - **Transaksi** : Page ini digunakan untuk membantu mempermudah proses transaksi antara Wisatawan dan Vendor.
 
-### Admin 
-  -**Login** : Admin dapat melakukan login tanpa melalui regitrasi karena memiliki akun yang sudah di sediakan.
-  -**Landing Page** : Di Sini User Dapat melihat tentang apa itu website WisataIndonesia, Apa Kegunaannya, dan apa - apa saja fitur yang di sediakan.
-  -**Profil Admin** : Di Profile Admin ini dapat menambahkan foto profile dan keluar dari akun jika perlu.
-  -**Menyetujui Data** : Admin dapat melakukan konfirmasi untuk Item yang di tambahkan oleh vendor, Admin juga dapat melakukan konfirmasi untuk transaksi yang terjadi untuk meningkatkan keamanan.
-  -**Menolak Data** : Admin dapat melakukan penolakan untuk Item yang di tambahkan oleh vendor, Admin juga dapat melakukan penolakan untuk transaksi yang terjadi untuk meningkatkan keamanan.
+### Admin
+  - **Login** : Admin dapat melakukan login tanpa melalui regitrasi karena memiliki akun yang sudah di sediakan.
+  - **Landing Page** : Di Sini User Dapat melihat tentang apa itu website WisataIndonesia, Apa Kegunaannya, dan apa - apa saja fitur yang di sediakan.
+  - **Profil Admin** : Di Profile Admin ini dapat menambahkan foto profile dan keluar dari akun jika perlu.
+  - **Menyetujui Data** : Admin dapat melakukan konfirmasi untuk Item yang di tambahkan oleh vendor, Admin juga dapat melakukan konfirmasi untuk transaksi yang terjadi untuk meningkatkan keamanan.
+  - **Menolak Data** : Admin dapat melakukan penolakan untuk Item yang di tambahkan oleh vendor, Admin juga dapat melakukan penolakan untuk transaksi yang terjadi untuk meningkatkan keamanan.
 
 ## Teknologi yang Digunakan
 - HTML (HyperText MarkUp Language)
