@@ -21,19 +21,29 @@ Dengan antarmuka yang ramah pengguna, Wisata Indonesia menyediakan informasi len
 - [Kontak](#kontak)
 
 ## Instalasi
-Langkah-langkah untuk menginstal proyek di lingkungan lokal. Termasuk prasyarat, cara clone repository, dan cara menjalankan website.
-Penggunaan
+  - Getting Started
+  - Install JDK 17
+  - Install extension Spring Boot pada VSC
+  - Install Maven pada terminal VSC atau install secara manual lewat web
+  - Atur Application.yml dan pom.xml(dependency) sesuai dengan kebutuhan backend anda
+  - Install Xampp sebagai server web apache dan sebagai pengelola database
+  - Install Postman/Insomnia untuk melakukan pengujian terhadap code pada backend
 
 ## Penggunaan
 
 ### Umum
-1. Buka browser dan masuk ke `http://localhost:3306`.
-2. Buka file [FrontEnd/HomePage/homePage.html](homePage.html) dan jalankan.
-3. Anda akan masuk ke halaman utama yang menjelaskan tentang Wisata Indonesia dengan tiga kategori wisata: Pantai, Pulau, dan Gunung.
-4. Navigasi tersedia untuk home, wisata, dan pariwisata. Wisata menampilkan vendor berdasarkan kota dan jenis wisata, sementara pariwisata adalah dropdown dengan tiga jenis wisata.
-5. Untuk login, klik "Masuk" di navbar kanan, lalu isi form login.
-6. Untuk registrasi, klik "Daftar" di navbar kanan, pilih peran (Vendor atau Wisatawan), lalu isi form registrasi.
-7. Setelah login atau registrasi, Anda akan diarahkan ke halaman utama (home).
+1. Download File Wisata Indonesia terlebih dahulu di Github(main).
+2. Setelah itu masukkan ke dalam folder [xammp\htdocs].
+3. Ekstrak folder.zip nya.
+4. Buka XAMPP, lalu nyalakan apache dan mysql.
+5. Buka folder backend, lalu masuk ke [ALP - pariwisata ORI\Back End\springJwt-main-2 2 2 4\springJwt-main-2 2 2\src\main\java\com\helloIftekhar\springJwt\model].
+6. Jalankan salah satu file.java yang berada di dalam folder model.
+7. Buka browser dan masuk ke `localhost/FrontEnd/HomePage/homePage.html`.
+8. Anda akan masuk ke halaman utama yang menjelaskan tentang Wisata Indonesia dengan tiga kategori wisata: Pantai, Pulau, dan Gunung.
+9. Navigasi tersedia untuk home, wisata, dan pariwisata. Wisata menampilkan vendor berdasarkan kota dan jenis wisata, sementara pariwisata adalah dropdown dengan tiga jenis wisata.
+10. Untuk login, klik "Masuk" di navbar kanan, lalu isi form login.
+11. Untuk registrasi, klik "Daftar" di navbar kanan, pilih peran (Vendor atau Wisatawan), lalu isi form registrasi.
+12. Setelah login atau registrasi, Anda akan diarahkan ke halaman utama (home).
 
 ### Wisatawan 
 1. Setelah login, Anda akan masuk ke halaman utama yang menjelaskan tentang Wisata Indonesia.
@@ -111,10 +121,13 @@ Penggunaan
   - **Menolak Data** : Admin dapat melakukan penolakan untuk Item yang di tambahkan oleh vendor, Admin juga dapat melakukan penolakan untuk transaksi yang terjadi untuk meningkatkan keamanan.
 
 ## Teknologi yang Digunakan
-- HTML (HyperText MarkUp Language)
-- CSS (Cascading Style Sheets)
-- JS (Java Script)
-- Java (Spring Boot)
+- **HTML (HyperText Markup Language)** Digunakan untuk membuat struktur halaman web.
+- **CSS (Cascading Style Sheets)** Digunakan untuk mengatur tata letak dan gaya visual halaman web.
+- **JavaScript** Digunakan untuk logika interaktif dan fungsionalitas dinamis pada sisi klien.
+- **Java (Spring Boot)** Digunakan untuk mengembangkan backend dan menyediakan layanan web.
+- **XAMPP** Digunakan sebagai server web Apache dan pengelola database MySQL.
+- **Maven** Digunakan untuk manajemen proyek dan manajemen dependensi.
+- **Postman** Digunakan untuk melakukan pengujian API dan debug permintaan HTTP.
 
 ## Kontribusi
 Kami sangat menyambut kontribusi dari para pengembang untuk membuat sistem ini lebih luas dan menarik. Berikut langkah-langkah untuk berkontribusi:
@@ -150,9 +163,9 @@ Jangan ragu untuk membuka issue baru jika Anda memiliki pertanyaan, saran, atau 
 Jika Anda memiliki pertanyaan atau ingin berdiskusi lebih lanjut tentang proyek ini, silakan hubungi kami melalui email:
 
 **Email**
-- Alvin Yuga Pramana :[kifay0715@gmail.com](mailto:kifay0715@gmail.com)
-- Apryadi Dwi Putra Tangalayuk :
-- Franklin Jaya :
-- Muh. Ryan Ardiansyah : 
+- Alvin Yuga Pramana : [kifay0715@gmail.com](mailto:kifay0715@gmail.com)
+- Apryadi Dwi Putra Tangalayuk : [putracraft21@gmail.com](mailto:putracraft21@gmail.com)
+- Franklin Jaya : [franklinjaya827@gmail.com](mailto:franklinjaya827@gmail.com)
+- Muh. Ryan Ardiansyah : [aqilah82714@gmail.com](mailto:aqilah82714@gmail.com)
 
 Kami akan dengan senang hati menjawab pertanyaan Anda secepat mungkin.
