@@ -57,9 +57,9 @@ public class AuthenticationService {
         if (isEmailExists(request.getEmailw())) {
             return new AuthenticationResponse(null, null, "Email Already Exist");
         }
-        if (!request.getPasswordw().equals(request.getKonfirmasipasswordw())) {
-            return new AuthenticationResponse(null, null, "Password and confirmation password do not match");
-        }
+        // if (!request.getPasswordw().equals(request.getKonfirmasipasswordw())) {
+        //     return new AuthenticationResponse(null, null, "Password and confirmation password do not match");
+        // }
 
         UserWisat user = new UserWisat();
         user.setEmailw(request.getEmailw());
@@ -85,9 +85,9 @@ public class AuthenticationService {
         if (isEmailExists(request.getEmailv())) {
             return new AuthenticationResponse(null, null, "Email Already Exist");
         }
-        if (!request.getPasswordv().equals(request.getConfirmPasswordv())) {
-            return new AuthenticationResponse(null, null, "Password and confirmation password do not match");
-        }
+        // if (!request.getPasswordv().equals(request.getConfirmPasswordv())) {
+        //     return new AuthenticationResponse(null, null, "Password and confirmation password do not match");
+        // }
 
         UserVendor vendor = new UserVendor();
         vendor.setEmailv(request.getEmailv());
