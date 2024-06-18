@@ -1,0 +1,392 @@
+@font-face {
+	font-family: 'HindSiliguriSB';
+	src: url('../Aset/font/Hind_Siliguri/HindSiliguri-SemiBold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'HindSiliguriR';
+	src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'HindSiliguriB';
+	src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Bold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'DancingScriptB';
+	src: url('../Aset/font/Dancing_Script/DancingScript-Bold.woff') format('woff');
+}
+
+* {
+	font-family: 'HindSiliguriR', sans-serif;
+}
+
+body {
+	background-image: linear-gradient(#023d8a42, #023d8a42), url(../Aset/img/aset6.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+button.navbar-toggler {
+	border: none;
+}
+
+button.navbar-toggler:focus {
+	box-shadow: none;
+}
+
+button.navbar-toggler i {
+	color: white;
+}
+
+.navbar {
+	box-shadow: 0 0 10px 0 rgba(162, 162, 162, 0.526);
+	position: relative;
+	top: 15px;
+	z-index: 1000;
+	margin: 0 auto;
+	width: 98%;
+	padding: 14px 10px;
+	border-radius: 8px;
+	background-color: #46c3dc;
+}
+
+.container-fluid .navbar-brand {
+	color: white;
+}
+
+.container-fluid li a {
+	color: white;
+	border-radius: 20px;
+	margin-right: 0;
+	transition: 1s;
+}
+
+.container-fluid a:hover {
+	color: black;
+	animation: buttonNav 1s both;
+	margin-right: 10px;
+}
+
+.container-fluid .navbar-brand p {
+	font-family: 'DancingScriptB', 'sans-serif';
+	margin: auto 10px;
+}
+
+.collapse .sukasukasaya {
+	display: flex;
+}
+
+form .search {
+	border-radius: 20px;
+	transition: 0.5s;
+}
+
+form .search:focus-within {
+	box-shadow: 0 0 15px 3px rgb(206, 206, 206);
+}
+
+form .search i {
+	color: rgb(147, 147, 147);
+}
+
+.search input {
+	border: none;
+	width: 90%
+}
+
+.search input:focus {
+	border: none;
+	outline: none;
+}
+
+.container-fluid .collapse .foto-profile {
+	display: flex;
+	width: 40px;
+	height: 40px;
+	background-color: #5c5c5d;
+	border-radius: 20px;
+	margin-left: 10px;
+}
+
+.foto-profile i {
+	font-size: 22px;
+	margin: auto;
+	border-radius: 20px;
+	color: #b6b6b6;
+}
+
+.row>* {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.top-container {
+	margin: 0 auto 2%;
+	text-align: center;
+	width: 80%;
+	padding: 30px;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 20px;
+	box-shadow: 0 0 7px 2px rgba(129, 129, 129, 0.618);
+}
+
+.top-container .line {
+	width: 1px;
+	height: 135px;
+	margin: 0 40px;
+	padding: 2px;
+	background-color: rgba(0, 0, 0, 0.503);
+}
+
+.top-container .line1 {
+	width: 1px;
+	height: 135px;
+	margin: 0 auto;
+	padding: 2px;
+	background-color: rgba(0, 0, 0, 0.503);
+}
+
+.top-container hr {
+	border: 2px solid black;
+}
+
+.margin-left p {
+	margin-left: 35px;
+}
+
+.margin-right p {
+	margin-right: 40px;
+}
+
+.layer-left {
+	margin-left: 30px;
+}
+
+.layer-right {
+	margin-right: 35px;
+}
+
+.status p.number {
+	font-size: 50px;
+}
+
+.detail-transaksi {
+	margin: 3% auto;
+}
+
+.detail-transaksi .bot-container {
+	margin: 2% auto;
+	width: 80%;
+}
+
+.bot-container p.h4 {
+	color: rgb(255, 255, 255);
+}
+
+.bot-container table {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	color: black;
+	border-radius: 8px;
+}
+
+.bot-container table thead {
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	background-color: white;
+	border-bottom: 2px solid black;
+}
+
+.bot-container thead tr th {
+	padding: 15px;
+}
+
+.bot-container tbody tr td {
+	padding: 15px;
+	background-color: white;
+}
+
+td button i {
+	margin-right: 7px;
+}
+
+.bot-container thead th:first-child {
+	border-top-left-radius: 10px;
+}
+
+.bot-container thead th:last-child {
+	border-top-right-radius: 10px;
+}
+
+.bot-container tbody tr:last-child td:first-child {
+	border-bottom-left-radius: 10px;
+}
+
+.bot-container tbody tr:last-child td:last-child {
+	border-bottom-right-radius: 10px;
+}
+
+.bot-container .table {
+	padding: 30px;
+	background-color: rgba(117, 117, 117, 0.511);
+	color: white;
+	backdrop-filter: blur(4px);
+	border-radius: 10px;
+}
+
+.status-berhasil {
+	color: green;
+	font-weight: bold;
+}
+
+.status-proses {
+	color: orange;
+	font-weight: bold;
+}
+
+.status-gagal {
+	color: red;
+	font-weight: bold;
+}
+
+
+#infoForm {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	z-index: 1000;
+	width: 90%;
+	max-width: 500px;
+	font-family: 'HindSiliguriR', sans-serif;
+}
+
+#infoForm h4 {
+	font-family: 'HindSiliguriSB', sans-serif;
+	margin-bottom: 20px;
+}
+
+#infoForm button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	margin-top: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+#infoForm button:hover {
+	background-color: #0056b3;
+}
+
+@keyframes buttonNav {
+	from {
+		background-color: #EAF4F4;
+		border-radius: 20px;
+	}
+
+	to {
+		background-color: #EAF4F4;
+		border-radius: 20px;
+	}
+}
+
+@media (max-width: 1400px) {
+	.tablink {
+		margin: 5px;
+	}
+
+	.btn-ulasan {
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 992px) {
+	.top-container .line1 {
+		display: none;
+	}
+
+	.top-container .line-remove {
+		margin: 0;
+		width: 0;
+	}
+
+	.top-container .col-sm-1 {
+		padding: 0;
+	}
+
+	.margin-left p {
+		margin-left: 0;
+	}
+
+	.margin-right p {
+		margin-right: 0;
+	}
+
+	.layer-left {
+		margin-left: 0;
+	}
+
+	.layer-right {
+		margin-right: 0;
+	}
+}
+
+@media (max-width: 576px) {
+	.top-container div.line1 {
+		display: block;
+		margin: 0 auto 20px;
+		width: 80%;
+		height: 1px;
+	}
+
+	.top-container div.line {
+		display: block;
+		margin: 0 auto 20px;
+		width: 80%;
+		height: 1px;
+	}
+
+	.top-container .line-remove {
+		width: 100%;
+	}
+
+	.top-container .text-center p {
+		font-size: 20px;
+	}
+
+	.margin-left p {
+		margin-left: 0;
+	}
+
+	.margin-right p {
+		margin-right: 0;
+	}
+
+	.layer-left {
+		margin-left: 0;
+	}
+
+	.layer-right {
+		margin-right: 0;
+	}
+}
+
+@media (max-width: 992px) {
+	.container-fluid li a {
+		padding: 8px;
+	}
+}

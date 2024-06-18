@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/control/detailtransaksi")
+@CrossOrigin
+@RequestMapping
 @RequiredArgsConstructor
 public class DetailTransaksiController {
 
     private final DetailTransaksiRepository detailTransaksiRepository;
 
-    @GetMapping
+    @GetMapping("/control/detailtransaksi")
     public ResponseEntity<Iterable<DetailTransaksiModel>> getAllDetailTransaksi() {
         Iterable<DetailTransaksiModel> detailTransaksis = detailTransaksiRepository.findAll();
         if (!detailTransaksis.iterator().hasNext()) {
@@ -25,13 +26,13 @@ public class DetailTransaksiController {
         return new ResponseEntity<>(detailTransaksis, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/control/detailtransaksi")
     public ResponseEntity<DetailTransaksiModel> addDetailTransaksi(@RequestBody DetailTransaksiModel detailTransaksi) {
         detailTransaksiRepository.save(detailTransaksi);
         return new ResponseEntity<>(detailTransaksi, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/control/detailtransaksi/{id}")
     public ResponseEntity<DetailTransaksiModel> updateDetailTransaksiById(@PathVariable Long id, @RequestBody DetailTransaksiModel detailTransaksiUpdate) {
         Optional<DetailTransaksiModel> optionalDetail = detailTransaksiRepository.findById(id);
         if (optionalDetail.isPresent()) {

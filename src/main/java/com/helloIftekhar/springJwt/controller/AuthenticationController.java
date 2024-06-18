@@ -16,6 +16,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
+@RequestMapping
 @RestController
 public class AuthenticationController {
 
@@ -50,25 +52,25 @@ public class AuthenticationController {
         return authService.refreshToken(request, response);
     }
 
-    @GetMapping("/profile/wisatawan")
+    @GetMapping("/profile/wisatawan/{id}")
     public ResponseEntity<UserWisat> getWisatawan(@RequestParam String emailw) {
         Optional<UserWisat> userWisat = authService.getWisatawanByEmail(emailw);
         return userWisat.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/profile/vendor")
+    @GetMapping("/profile/vendor/{id}")
     public ResponseEntity<UserVendor> getVendor(@RequestParam String emailv) {
         Optional<UserVendor> userVendor = authService.getVendorByEmail(emailv);
         return userVendor.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/perbaiki/wisatawan")
+    @PutMapping("/perbaiki/wisatawan/{id}")
     public ResponseEntity<UserWisat> updateWisatawan(@RequestParam String email, @RequestBody UserWisat updatedUserWisat) {
         Optional<UserWisat> userWisat = authService.updateWisatawan(email, updatedUserWisat);
         return userWisat.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/perbaiki/vendor")
+    @PutMapping("/perbaiki/vendor/{id}")
     public ResponseEntity<UserVendor> updateVendor(@RequestParam String email, @RequestBody UserVendor updatedUserVendor) {
         Optional<UserVendor> userVendor = authService.updateVendor(email, updatedUserVendor);
         return userVendor.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

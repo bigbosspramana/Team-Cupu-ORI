@@ -13,12 +13,13 @@ import com.helloIftekhar.springJwt.repository.TransaksiRepository;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/control/transaksi")
+@CrossOrigin
+@RequestMapping
 @RequiredArgsConstructor
 public class TransaksiController {
     private final TransaksiRepository transaksiRepository;
 
-    @GetMapping
+    @GetMapping("/control/transaksi")
     public ResponseEntity<Iterable<TransaksiModel>> getAllInventory() {
         Iterable<TransaksiModel> transaksi = transaksiRepository.findAll();
         if (!transaksi.iterator().hasNext()) {
@@ -27,13 +28,13 @@ public class TransaksiController {
         return new ResponseEntity<>(transaksi, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/control/transaksi")
     public ResponseEntity<ProdukModel> addInventory(@RequestBody TransaksiModel transaksi) {
         transaksiRepository.save(transaksi);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/control/transaksi/{id}")
     public ResponseEntity<TransaksiModel> updateInventoryById(@PathVariable Long id, @RequestBody TransaksiModel transaksiUpdate) {
         Optional<TransaksiModel> optionalTransaksi = transaksiRepository.findById(id);
         if (optionalTransaksi.isPresent()) {
