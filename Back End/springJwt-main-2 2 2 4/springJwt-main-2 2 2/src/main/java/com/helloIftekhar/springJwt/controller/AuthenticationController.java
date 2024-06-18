@@ -16,6 +16,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
+@RequestMapping
 @RestController
 public class AuthenticationController {
 
