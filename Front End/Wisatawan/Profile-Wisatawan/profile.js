@@ -49,10 +49,10 @@ facebookButton.addEventListener('click', function() {
 });
 
 function editProfile() {
-    document.getElementById('vendor-name').disabled = false;
-    document.getElementById('vendor-number').disabled = false;
-    document.getElementById('vendor-address').disabled = false;
-    document.getElementById('vendor-city').disabled = false;
+    document.getElementById('wisatawan-name').disabled = false;
+    document.getElementById('wisatawan-number').disabled = false;
+    document.getElementById('wisatawan-address').disabled = false;
+    document.getElementById('wisatawan-city').disabled = false;
     
     document.querySelector('.edit-btn').hidden = true;
     document.querySelector('.save-btn').hidden = false;
@@ -60,10 +60,10 @@ function editProfile() {
   }
   
   function saveProfile() {
-    document.getElementById('vendor-name').disabled = true;
-    document.getElementById('vendor-number').disabled = true;
-    document.getElementById('vendor-address').disabled = true;
-    document.getElementById('vendor-city').disabled = true;
+    document.getElementById('wisatawan-name').disabled = true;
+    document.getElementById('wisatawan-number').disabled = true;
+    document.getElementById('wisatawan-address').disabled = true;
+    document.getElementById('wisatawan-city').disabled = true;
   
     document.querySelector('.edit-btn').hidden = false;
     document.querySelector('.save-btn').hidden = true;
@@ -73,10 +73,10 @@ function editProfile() {
   }
   
   function cancelEdit() {
-    document.getElementById('vendor-name').disabled = true;
-    document.getElementById('vendor-number').disabled = true;
-    document.getElementById('vendor-address').disabled = true;
-    document.getElementById('vendor-city').disabled = true;
+    document.getElementById('wisatawan-name').disabled = true;
+    document.getElementById('wisatawan-number').disabled = true;
+    document.getElementById('wisatawan-address').disabled = true;
+    document.getElementById('wisatawan-city').disabled = true;
   
     document.querySelector('.edit-btn').hidden = false;
     document.querySelector('.save-btn').hidden = true;

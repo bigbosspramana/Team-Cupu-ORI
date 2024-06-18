@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,54 +16,53 @@
 </head>
 
 <body>
-      <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <div class="navbar-brand d-flex">
-                <img src="../Aset/img/logo-head-transformed 2.png" alt="Bootstrap" width="35" height="35">
-                <p>Wisata Indonesia</p>
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="navbar-brand d-flex">
+        <img src="../Aset/img/logo-head-transformed 2.png" alt="Bootstrap" width="35" height="35">
+        <p>Wisata Indonesia</p>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" id="home-page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="populer" href="">Populer</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Pariwisata
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="gunung" href="#">Pegunungan</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" id="pantai" href="#">Pantai</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" id="pulau" href="#">Pulau</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="sukasukasaya">
+          <div class="col-sm-1 col-lg-2">
+            <div class="foto-profile">
+              <i class="fa-solid fa-user"></i>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" id="home-page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="populer" href="">Populer</a>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Pariwisata
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" id="gunung" href="#">Pegunungan</a>
-                      </li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" id="pantai" href="#">Pantai</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" id="pulau" href="#">Pulau</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <div class="sukasukasaya">
-                    <div class="col-sm-1 col-lg-2">
-                        <div class="foto-profile">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </nav>
-  
+      </div>
+    </div>
+  </nav>
 
   <!-- Profile Pengguna -->
   <div class="profile">
@@ -92,22 +92,22 @@
       <div class="right-section">
         <div class="profile-info">
           <div class="col-12">
-            <label for="vendor-name" class="form-label">Nama Pengguna</label>
-            <input type="text" id="vendor-name" class="form-control" disabled>
+            <label for="wisatawan-name" class="form-label">Nama Pengguna</label>
+            <input type="text" id="wisatawan-name" class="form-control" disabled>
           </div>
           <div class="col-12">
-            <label for="vendor-number" class="form-label label-mt">Nomor Whatsapp/Nomor Telepon</label>
-            <input type="text" id="vendor-number" class="form-control" disabled>
+            <label for="wisatawan-number" class="form-label label-mt">Nomor Whatsapp/Nomor Telepon</label>
+            <input type="tel" pattern="\+62[0-9]{10,13}" minlength="9" maxlength="16" id="wisatawan-number" class="form-control" placeholder="+62 123-4567-8901">
           </div>
           <div class="col-12">
-            <label for="vendor-address" class="form-label label-mt">Alamat Email</label>
-            <input type="text" id="vendor-address" class="form-control" disabled>
+            <label for="wisatawan-address" class="form-label label-mt">Alamat Email</label>
+            <input type="email" id="wisatawan-address" class="form-control" placeholder="bapakbudi@example.com" disabled>
           </div>
           <div class="col-12">
-            <label for="vendor-city" class="form-label label-mt">Tanggal Bergabung</label>
-            <input type="text" id="vendor-city" class="form-control" disabled>
+            <label for="wisatawan-city" class="form-label label-mt">Tanggal Bergabung</label>
+            <input type="date" id="wisatawan-city" class="form-control">
+            <span id="display-date"></span>
           </div>
-
           <div class="button-acc" style="margin-top: 24px;">
             <div class="btn-layer row">
               <div class="col-md-4 col-sm-12">
@@ -127,7 +127,11 @@
               </div>
             </div>
           </div>
-          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="profile.js"></script>
 </body>
-<script src="profile.js"></script>
+
 </html>
