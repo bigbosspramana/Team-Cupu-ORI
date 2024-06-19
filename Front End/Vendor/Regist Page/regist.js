@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isValid = false;
     }
 
-    formWisatawan.addEventListener('submit', function (event) {
+    formWisatawan.addEventListener('submit', async function (event) {
         event.preventDefault();
 
         // Mengambil nilai input
@@ -91,20 +91,40 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // if (isValid) {
-        //     alert('Form berhasil disubmit!');
-        //     console.log('Data Wisatawan:', {
-        //         email,
-        //         password,
-        //         fullName,
-        //         gender,
-        //         birthDate,
-        //         city,
-        //         phoneNumber
-        //     });
-        // } else {
-        //     alert('Silakan isi semua field yang diperlukan');
-        // }
+        const formData = {
+            emailw: document.getElementById('email-w').value,
+            passwordw: document.getElementById('katasandi-w').value,
+            // konfirmasipasswordw: document.getElementById('konfirmasikatsan-w').value,
+            namaLengkapw: document.getElementById('namauser-w').value,
+            jenisKelaminw: document.getElementById('jkel-w').value,
+            tanggalLahirw: document.getElementById('tglLahir').value,
+            kotaw: document.getElementById('kota-w').value,
+            nomorTeleponw: document.getElementById('notelp-w').value
+        };
+
+        try {
+            // Mengirim data ke server
+            const response = await fetch('http://localhost:8080/register/wisatawan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert('Akses Tokenmu: ' + result.access_token);
+                console.log(result);
+                formWisatawan.reset(); // Reset form setelah submit berhasil
+            } else {
+                throw new Error(result.message || 'Gagal melakukan registrasi');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Registrasi Wisatawan gagal!');
+        }
     });
 });
 
@@ -189,55 +209,44 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false; // Set isValid to false if phone number is empty
         }
 
-        // const formData = {
-        //     email: document.getElementById('email-v').value,
-        //     katasandi: document.getElementById('katasandi-v').value,
-        //     konfirmasiKatasandi: document.getElementById('konfirmasikatsan-v').value,
-        //     namaVendor: document.getElementById('namauser-v').value,
-        //     alamat: document.getElementById('alamat-v').value,
-        //     nomorTelepon: document.getElementById('notelp-v').value,
-        //     instagram: document.getElementById('instagram').value,
-        //     tiktok: document.getElementById('tiktok').value,
-        //     facebook: document.getElementById('facebook').value,
-        // };
+        const formData = {
+            emailv: emailVendor,
+            passwordv: passwordVendor,
+            // confirmPasswordv: confirmPasswordVendor,
+            namaVendorv: vendorName,
+            alamatv: address,
+            nomorTeleponv: phoneNumberVendor,
+            instagramv: document.getElementById('instagram').value,
+            tiktokv: document.getElementById('tiktok').value,
+            facebookv: document.getElementById('facebook').value,
+        };
 
-        // if (isValid) {
-        //     const response = await fetch('/register/vendor', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(formData)
-        //     });
-        //     const result = await response.json();
-        //     alert('Registrasi Vendor berhasil!');
-        //     console.log(result);
-        // } else {
-        //     console.error('Error:', error);
-        //     alert('Registrasi Vendor gagal!');
-        // }
+        try {
+            const response = await fetch('http://localhost:8080/register/vendor', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
 
-        // if (isValid) {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
 
-        //     console.log('Data Vendor:', {
-        //         emailVendor,
-        //         passwordVendor,
-        //         vendorName,
-        //         address,
-        //         phoneNumberVendor
-        //     });
+            const result = await response.json();
+            alert('Registrasi Vendor berhasil!');
+            console.log(result);
+        } catch (error) {
+            console.error('There was a problem with your fetch operation:', error);
+            alert('Registrasi Vendor gagal!');
+        }
 
-        //     // let dataVendor = { emailVendor, passwordVendor, vendorName, address, cityVendor, phoneNumberVendor };
-        //     // if (instagram) dataVendor.instagram = instagram;
-        //     // if (tiktok) dataVendor.tiktok = tiktok;
-        //     // if (facebook) dataVendor.facebook = facebook;
-
-        //     alert('Data Vendor Berhasil ditambahkan.')
-        // } else {
-        //     alert('Silakan isi semua field yang diperlukan');
-        // }
+        console.log('Data Vendor:', formData);
     });
+
 });
+
 
 function openPage(pageName, elmnt) {
     var i, tabcontent, tablinks;

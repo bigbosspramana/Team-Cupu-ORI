@@ -77,7 +77,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-sm-3 col-lg-6 col-xl-8">
+                                <div class="col-sm-3 col-lg-6 col-xxl-8">
                                     <label for="tglLahir" class="form-label acc-mt-10">Tanggal Lahir<span>
                                             *</span></label><br>
                                     <input type="date" class="form-control" id="tglLahir" placeholder="mm/dd/yyyy">
@@ -200,82 +200,6 @@
     </div>
 
     <script src="regist.js"></script>
-    <script>
-        // Fungsi untuk fetch data form wisatawan
-        document.getElementById('formWisatawan').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            // Mengambil nilai dari form
-            const formData = {
-                emailw: document.getElementById('email-w').value,
-                passwordw: document.getElementById('katasandi-w').value,
-                konfirmasipasswordw: document.getElementById('konfirmasikatsan-w').value,
-                namaLengkapw: document.getElementById('namauser-w').value,
-                jenisKelaminw: document.getElementById('jkel-w').value,
-                tanggalLahirw: document.getElementById('tglLahir').value,
-                kotaw: document.getElementById('kota-w').value,
-                nomorTeleponw: document.getElementById('notelp-w').value
-            };
-
-            try {
-                // Mengirim data ke server
-                const response = await fetch('/register/wisatawan', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    alert('Akses Tokenmu: ' + result.access_token);
-                    console.log(result);
-                    formWisatawan.reset(); // Reset form setelah submit berhasil
-                } else {
-                    throw new Error(result.message || 'Gagal melakukan registrasi');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Registrasi Wisatawan gagal!');
-            }
-        });
-
-        // Fungsi untuk fetch data form vendor
-        document.getElementById('formVendor').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const formData = {
-                email: document.getElementById('email-v').value,
-                katasandi: document.getElementById('katasandi-v').value,
-                konfirmasiKatasandi: document.getElementById('konfirmasikatsan-v').value,
-                namaVendor: document.getElementById('namauser-v').value,
-                alamat: document.getElementById('alamat-v').value,
-                nomorTelepon: document.getElementById('notelp-v').value,
-                instagram: document.getElementById('instagram').value,
-                tiktok: document.getElementById('tiktok').value,
-                facebook: document.getElementById('facebook').value,
-            };
-
-            try {
-                const response = await fetch('/register/vendor', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-                const result = await response.json();
-                alert('Registrasi Vendor berhasil!');
-                console.log(result);
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Registrasi Vendor gagal!');
-            }
-        });
-
-    </script>
 </body>
 
 </html>

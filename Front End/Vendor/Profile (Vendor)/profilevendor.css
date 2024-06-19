@@ -133,7 +133,7 @@ form .search i {
 
 .left-section {
 	width: 350px;
-	margin-left: 1.8%;
+	margin: auto 0 auto auto;
 }
 
 .content .tengah {
@@ -608,6 +608,177 @@ form .search i {
 	color: white;
 }
 
+/* Pop Up */
+.popup {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    bottom: 0; /* Ubah dari bottom ke top */
+    width: 100%;
+    overflow-y: hidden; 
+}
+
+.popup-content p {
+	font-weight: bold;
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 23% auto; /* Sesuaikan margin agar muncul di tengah */
+    padding: 30px 8px;
+	text-align: center;
+	box-shadow: 0 0 15px 1px #888;
+	border-radius: 15px;
+    width: 40%; 
+}
+
+.popup-content1 p {
+	font-weight: bold;
+}
+
+.popup-content1 {
+    background-color: #fefefe;
+    margin: 12% auto; /* Sesuaikan margin agar muncul di tengah */
+    padding: 30px 20px;
+	text-align: left;
+	box-shadow: 0 0 15px 1px #888;
+	border-radius: 15px;
+    width: 50%; 
+}
+
+.popup-content1 .buttonsya {
+	text-align: center;
+}
+
+.popup-content1 input{
+    border-radius: 4px;
+	background-color: #f7f7f7;
+	border: none;
+	box-shadow: 0 0 6px 0 rgb(93, 93, 93);
+}
+
+.popup-content1 input:target{
+	border: none;
+}
+
+.popup-content1 #cancel-change-password {
+	margin-top: 10px;
+}
+
+.popup-content1 #confirm-change-password {
+	margin-top: 10px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#cancel-delete {
+	border: 1px solid rgb(250, 42, 42);
+	color: rgb(250, 42, 42);
+	background-color: transparent;
+	border-radius: 18px;
+	padding: 6px;
+	width: 70px;
+	transition: .8s;
+}
+
+#cancel-delete:hover {
+	background-color: rgb(250, 42, 42);
+	color: white;
+}
+
+#confirm-delete {
+	border: 1px solid rgb(42, 132, 250);
+	color: rgb(42, 132, 250);
+	background-color: transparent;
+	border-radius: 18px;
+	padding: 6px;
+	width: 70px;
+	transition: .8s;
+}
+
+#confirm-delete:hover {
+	background-color: rgb(42, 132, 250);
+	color: white;
+}
+
+#cancel-logout {
+	border: 1px solid rgb(250, 42, 42);
+	color: rgb(250, 42, 42);
+	background-color: transparent;
+	border-radius: 18px;
+	padding: 6px;
+	width: 70px;
+	transition: .8s;
+}
+
+#cancel-logout:hover {
+	background-color: rgb(250, 42, 42);
+	color: white;
+}
+
+#confirm-logout {
+	border: 1px solid rgb(42, 132, 250);
+	color: rgb(42, 132, 250);
+	background-color: transparent;
+	border-radius: 18px;
+	padding: 6px;
+	width: 70px;
+	transition: .8s;
+}
+
+#confirm-logout:hover {
+	background-color: rgb(42, 132, 250);
+	color: white;
+}
+
+#cancel-change-password {
+	border: 1px solid rgb(250, 42, 42);
+	color: rgb(250, 42, 42);
+	background-color: transparent;
+	border-radius: 18px;
+	padding: 6px;
+	width: 70px;
+	transition: .8s;
+}
+
+#cancel-change-password:hover {
+	background-color: rgb(250, 42, 42);
+	color: white;
+}
+
+#confirm-change-password {
+	border: 1px solid rgb(42, 132, 250);
+	color: rgb(42, 132, 250);
+	background-color: transparent;
+	border-radius: 18px;
+	padding: 6px;
+	width: 70px;
+	transition: .8s;
+}
+
+#confirm-change-password:hover {
+	background-color: rgb(42, 132, 250);
+	color: white;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+
 @keyframes buttonNav {
 	from {
 		background-color: #EAF4F4;
@@ -618,6 +789,29 @@ form .search i {
 		background-color: #EAF4F4;
 		border-radius: 20px;
 	}
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+	.popup {
+		bottom: 100px;
+	}
+
+    .popup-content,
+    .popup-content1 {
+        width: 90%; /* Lebar menjadi 90% untuk layar kecil */
+    }
+    
+    .popup-content button,
+    .popup-content1 button {
+        width: 100%; /* Tombol memenuhi lebar */
+        margin-top: 10px; /* Margin atas untuk spasi */
+    }
+    
+    .popup-content input,
+    .popup-content1 input {
+        width: 100%; /* Input memenuhi lebar */
+    }
 }
 
 @media(max-width: 1200px) {

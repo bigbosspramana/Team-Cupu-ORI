@@ -32,25 +32,25 @@
                         <a class="nav-link" aria-current="page" href="../Home Page/homePage.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Detail Transaksi/.html">Detail Transaksi</a>
+                        <a class="nav-link" href="../Detail Transaksi/detailtransaksi.html">Detail Transaksi</a>
                     </li>
                 </ul>
                 <div class="sukasukasaya">
                     <div class="col-10 col-sm-11 col-lg-10">
                         <form class="d-flex" role="search">
-                          <div class="search form-control me-2">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="search" id="search" placeholder="Search" aria-label="Search">
-                          </div>
+                            <div class="search form-control me-2">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="search" id="search" placeholder="Search" aria-label="Search">
+                            </div>
                         </form>
-                      </div>
-                      <div class="col-2 col-sm-1 col-lg-2">
-                        <a href="../Profile (Vendor)/index.html">
-                          <div class="foto-profile">
-                            <i class="fa-solid fa-user"></i>
-                          </div>
+                    </div>
+                    <div class="col-2 col-sm-1 col-lg-2">
+                        <a href="../Profile (Vendor)/profilevendor.html">
+                            <div class="foto-profile">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
                         </a>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                     <h3>Upload Image</h3>
                     <p>Image size must be less than <span>2MB</span></p>
                 </div>
-                <button class="select-image" style="max-width: 100%;">
+                <button class="select-image" style="max-width: 100%;" hidden>
                     <i class="fa-solid fa-images"></i>
                     Select Image
                 </button>
@@ -89,28 +89,23 @@
             <div class="right-section">
                 <div class="profile-info">
                     <div class="col-12">
-                        <label for="vendor-name" class="form-label">Nama Vendor</label>
+                        <label for="vendor-name" class="form-label">Nama</label>
                         <input type="text" id="vendor-name" class="form-control" disabled>
+                        <span id="vendor-name-error" class="error-message"></span>
                     </div>
                     <div class="col-12">
-                        <label for="vendor-number" class="form-label label-mt">Nomor Whatsapp/Nomor Telepon</label>
-                        <input type="text" id="vendor-number" class="form-control" disabled>
-                    </div>
-                    <div class="col-12">
-                        <label for="vendor-address" class="form-label label-mt">Alamat Vendor</label>
+                        <label for="vendor-address" class="form-label label-mt">Alamat</label>
                         <input type="text" id="vendor-address" class="form-control" disabled>
+                        <span id="vendor-alamat-error" class="error-message"></span>
                     </div>
                     <div class="col-12">
-                        <label for="vendor-city" class="form-label label-mt">Kota</label>
-                        <input type="text" id="vendor-city" class="form-control" disabled>
+                        <label for="vendor-number" class="form-label label-mt">Nomor Whatsapp</label>
+                        <input type="text" id="vendor-number" class="form-control" disabled>
+                        <span id="vendor-notelp-error" class="error-message"></span>
                     </div>
                     <div class="col-12">
                         <label for="vendor-description" class="form-label label-mt">Deskripsi</label>
                         <textarea id="vendor-description" rows="5" class="form-control" disabled></textarea>
-                    </div>
-                    <div class="col-12">
-                        <label for="vendor-instagram" class="form-label label-mt hidden">Nama Instagram</label>
-                        <input type="text" id="vendor-instagram" class="form-control hidden" disabled>
                     </div>
 
                     <div id="btn-sosmed-container" class="hidden">
@@ -119,15 +114,19 @@
                                 <label for="instagram-input" class="form-label label-mt">Instagram URL</label>
                                 <input type="text" id="instagram-input" class="form-control"
                                     placeholder="Enter Instagram URL">
+                                <span id="instagram-error" class="error-message"></span>
                             </div>
                             <div class="col-lg-4">
                                 <label for="tiktok-input" class="form-label label-mt">Tiktok URL</label>
-                                <input type="text" id="tiktok-input" class="form-control" placeholder="Enter Tiktok URL">
+                                <input type="text" id="tiktok-input" class="form-control"
+                                    placeholder="Enter Tiktok URL">
+                                <span id="tiktok-error" class="error-message"></span>
                             </div>
                             <div class="col-lg-4">
                                 <label for="facebook-input" class="form-label label-mt">Facebook URL</label>
                                 <input type="text" id="facebook-input" class="form-control"
                                     placeholder="Enter Facebook URL">
+                                <span id="facebook-error" class="error-message"></span>
                             </div>
                         </div>
                     </div>
@@ -165,7 +164,8 @@
                 <div class="photo-container add-photo-container" id="add-photo">
                     <div class="add-photo">
                         <i class="fa-solid fa-image"></i>
-                        <button class="upload-btn" onclick="document.getElementById('file-input').click()">Add Photo</button>
+                        <button class="upload-btn" onclick="document.getElementById('file-input').click()">Add
+                            Photo</button>
                     </div>
                 </div>
             </div>
@@ -205,7 +205,7 @@
         </a>
     </div>
 
-    <div class="button-acc">
+    <!-- <div class="button-acc">
         <div class="btn-layer row">
             <div class="col-md-4 col-sm-12">
                 <button class="change-pass">
@@ -222,6 +222,60 @@
                     Keluar
                 </button>
             </div>
+        </div>
+    </div> -->
+
+    <div class="button-acc">
+        <div class="btn-layer row">
+            <div class="col-md-4 col-sm-12">
+                <button class="change-pass" onclick="openPopup()" id="change-password-btn">Ubah Kata Sandi</button>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <button class="remove-acc" onclick="openDeletePopup()" id="delete-account-btn">Hapus Akun</button>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <button class="log-out" onclick="openLogoutPopup()" id="logout-btn">Keluar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop Up -->
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <!-- <span class="close-btn">&times;</span> -->
+            <p>Apakah Anda yakin ingin menghapus akun Anda?</p>
+            <button id="confirm-delete">Ya</button>
+            <button id="cancel-delete">Tidak</button>
+        </div>
+    </div>
+
+    <!-- Popup untuk keluar -->
+    <div id="logoutPopup" class="popup">
+        <div class="popup-content">
+            <!-- <span class="close-btn">&times;</span> -->
+            <p>Apakah Anda yakin ingin keluar?</p>
+            <button id="confirm-logout">Ya</button>
+            <button id="cancel-logout">Tidak</button>
+        </div>
+    </div>
+
+    <div id="changePopup" class="popup">
+        <div class="popup-content1">
+            <p class="h6 text-center">Ganti Katasandi</p>
+            <form id="change-password-form">
+                <label for="old-password" class="form-label">Password Lama</label><br>
+                <input type="password" id="old-password" name="old-password" required class="form-control"><br>
+                
+                <label for="new-password" class="form-label">Password Baru:</label><br>
+                <input type="password" id="new-password" name="new-password" required class="form-control"><br>
+        
+                <label for="confirm-new-password" class="form-label">Konfirmasi Password Baru:</label><br>
+                <input type="password" id="confirm-new-password" name="confirm-new-password" required class="form-control"><br>
+                <div class="buttonsya">
+                    <button type="submit" id="confirm-change-password" class="label-mt text-center">Simpan</button>
+                    <button type="button" id="cancel-change-password" class="label-mt text-center">Batal</button>
+                </div>
+            </form>
         </div>
     </div>
 

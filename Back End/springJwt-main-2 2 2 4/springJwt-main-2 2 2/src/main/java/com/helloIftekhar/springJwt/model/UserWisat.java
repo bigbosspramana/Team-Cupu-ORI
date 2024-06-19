@@ -28,8 +28,8 @@ public class UserWisat implements UserDetails {
     @Column(name = "password")
     private String passwordw;
 
-    @Column(name = "konfirmasi_password")
-    private String konfirmasipasswordw;
+    // @Column(name = "konfirmasi_password")
+    // private String konfirmasipasswordw;
 
     @Column(name = "nama_lengkap")
     private String namaLengkapw;
@@ -55,11 +55,11 @@ public class UserWisat implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<TokenWisat> tokens;
 
-    public UserWisat(String emailw, String passwordw, String konfirmasipasswordw, String namaLengkapw,
+    public UserWisat(String emailw, String passwordw, String namaLengkapw,
                      JenisKelamin jenisKelaminw, Date tanggalLahirw, Kota kotaw, String nomorTeleponw) {
         this.emailw = emailw;
         this.passwordw = passwordw;
-        this.konfirmasipasswordw = konfirmasipasswordw;
+        // this.konfirmasipasswordw = konfirmasipasswordw;
         this.namaLengkapw = namaLengkapw;
         this.jenisKelaminw = jenisKelaminw;
         this.tanggalLahirw = tanggalLahirw;
@@ -95,13 +95,13 @@ public class UserWisat implements UserDetails {
         this.passwordw = passwordw;
     }
 
-    public String getKonfirmasipasswordw() {
-        return konfirmasipasswordw;
-    }
+    // public String getKonfirmasipasswordw() {
+    //     return konfirmasipasswordw;
+    // }
 
-    public void setKonfirmasipasswordw(String konfirmasipasswordw) {
-        this.konfirmasipasswordw = konfirmasipasswordw;
-    }
+    // public void setKonfirmasipasswordw(String konfirmasipasswordw) {
+    //     this.konfirmasipasswordw = konfirmasipasswordw;
+    // }
 
     public String getNamaLengkapw() {
         return namaLengkapw;

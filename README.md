@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
 #
 =======
 # Wisata Indonesia
@@ -9,3 +12,4 @@ Wisata Indonesia adalah solusi terbaik bagi vendor dan wisatawan yang ingin mere
 
 Dengan antarmuka yang ramah pengguna, Wisata Indonesia menyediakan informasi lengkap dan akurat tentang berbagai destinasi wisata, memungkinkan wisatawan untuk membuat keputusan yang tepat dan merencanakan liburan impian mereka dengan mudah.
 >>>>>>> main
+>>>>>>> 81550288182d8755cf45837b408ed27087f65ba7
