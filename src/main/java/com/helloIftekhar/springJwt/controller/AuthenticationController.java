@@ -52,47 +52,35 @@ public class AuthenticationController {
         return authService.refreshToken(request, response);
     }
 
-    @GetMapping("/profile/wisatawan/{id}")
+    @GetMapping("/profile/wisatawan")
     public ResponseEntity<UserWisat> getWisatawan(@RequestParam String emailw) {
         Optional<UserWisat> userWisat = authService.getWisatawanByEmail(emailw);
         return userWisat.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/profile/vendor/{id}")
+    @GetMapping("/profile/vendor")
     public ResponseEntity<UserVendor> getVendor(@RequestParam String emailv) {
         Optional<UserVendor> userVendor = authService.getVendorByEmail(emailv);
         return userVendor.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/perbaiki/wisatawan/{id}")
-    public ResponseEntity<UserWisat> updateWisatawan(@RequestParam String email, @RequestBody UserWisat updatedUserWisat) {
-        Optional<UserWisat> userWisat = authService.updateWisatawan(email, updatedUserWisat);
-        return userWisat.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @PutMapping("/perbaiki/vendor/{id}")
-    public ResponseEntity<UserVendor> updateVendor(@RequestParam String email, @RequestBody UserVendor updatedUserVendor) {
-        Optional<UserVendor> userVendor = authService.updateVendor(email, updatedUserVendor);
-        return userVendor.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @DeleteMapping("/hapus/wisatawan")
-    public ResponseEntity<Void> deleteWisatawan(@RequestParam String email) {
-        boolean deleted = authService.deleteWisatawan(email);
-        if (deleted) {
-            return ResponseEntity.ok().build();
+    @PutMapping("/edit/profile/wisatawan/{email}")
+    public ResponseEntity<Object> editUserWisat(@PathVariable String email, @RequestBody UserWisat updatedUserWisat) {
+        Optional<UserWisat> updatedUser = authService.updateWisatawan(email, updatedUserWisat);
+        if (updatedUser.isPresent()) {
+            return ResponseEntity.ok(updatedUser.get());
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
-    @DeleteMapping("/hapus/vendor")
-    public ResponseEntity<Void> deleteVendor(@RequestParam String email) {
-        boolean deleted = authService.deleteVendor(email);
-        if (deleted) {
-            return ResponseEntity.ok().build();
+    @PutMapping("/edit/profile/vendor/{emailv}")
+    public ResponseEntity<String> updateVendorProfile(@PathVariable String emailv, @RequestBody UserVendor updatedUserVendor) {
+        Optional<UserVendor> updatedUser = authService.updateVendorProfile(emailv, updatedUserVendor);
+        if (updatedUser.isPresent()) {
+            return ResponseEntity.ok("Profile updated successfully");
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().body("User not found");
         }
     }
 

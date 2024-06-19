@@ -1,6 +1,7 @@
 package com.helloIftekhar.springJwt.service;
 
 import com.helloIftekhar.springJwt.repository.TokenWisatRepository;
+import com.helloIftekhar.springJwt.repository.TokenVendRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -25,42 +26,59 @@ public class JwtService {
     @Value("${application.security.jwt.refresh-token-expiration}")
     private long refreshTokenExpire;
 
+    @Value("${application.security.jwt.clock-skew}")
+    private long clockSkew;
 
-    private final TokenWisatRepository tokenRepository;
+    private final TokenWisatRepository tokenWisatRepository;
+    private final TokenVendRepository tokenVendRepository;
 
-    public JwtService(TokenWisatRepository tokenRepository) {
-        this.tokenRepository = tokenRepository;
+    public JwtService(TokenWisatRepository tokenWisatRepository, TokenVendRepository tokenVendRepository) {
+        this.tokenWisatRepository = tokenWisatRepository;
+        this.tokenVendRepository = tokenVendRepository;
     }
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
-
     public boolean isValid(String token, UserDetails user) {
         String username = extractUsername(token);
 
-        boolean validToken = tokenRepository
-                .findByAccessToken(token) // Ensure this method is defined
+        boolean validToken = tokenWisatRepository
+                .findByAccessToken(token)
                 .map(t -> !t.isLoggedOut())
                 .orElse(false);
+
+        if (!validToken) {
+            validToken = tokenVendRepository
+                    .findByAccessToken(token)
+                    .map(t -> !t.isLoggedOut())
+                    .orElse(false);
+        }
 
         return (username.equals(user.getUsername())) && !isTokenExpired(token) && validToken;
     }
 
-    public boolean isValidRefreshToken(String token, UserDetails user) { // Changed parameter type to UserDetails
+    public boolean isValidRefreshToken(String token, UserDetails user) {
         String username = extractUsername(token);
 
-        boolean validRefreshToken = tokenRepository
-                .findByRefreshToken(token) // Ensure this method is defined
+        boolean validRefreshToken = tokenWisatRepository
+                .findByRefreshToken(token)
                 .map(t -> !t.isLoggedOut())
                 .orElse(false);
+
+        if (!validRefreshToken) {
+            validRefreshToken = tokenVendRepository
+                    .findByRefreshToken(token)
+                    .map(t -> !t.isLoggedOut())
+                    .orElse(false);
+        }
 
         return (username.equals(user.getUsername())) && !isTokenExpired(token) && validRefreshToken;
     }
 
     private boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+        return extractExpiration(token).before(new Date(System.currentTimeMillis() - clockSkew * 1000));
     }
 
     private Date extractExpiration(String token) {
@@ -75,12 +93,12 @@ public class JwtService {
     private Claims extractAllClaims(String token) {
         return Jwts
                 .parser()
-                .verifyWith(getSigninKey())
+                .setSigningKey(getSigninKey())
+                .setAllowedClockSkewSeconds(clockSkew)
                 .build()
-                .parseSignedClaims(token)
-                .getPayload();
+                .parseClaimsJws(token)
+                .getBody();
     }
-
 
     public String generateAccessToken(UserDetails user) {
         return generateToken(user, accessTokenExpire);
@@ -91,19 +109,17 @@ public class JwtService {
     }
 
     private String generateToken(UserDetails user, long expireTime) {
-        String token = Jwts
+        return Jwts
                 .builder()
-                .subject(user.getUsername())
-                .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + expireTime))
+                .setSubject(user.getUsername())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + expireTime))
                 .signWith(getSigninKey())
                 .compact();
-
-        return token;
     }
 
     private SecretKey getSigninKey() {
-        byte[] keyBytes = Decoders.BASE64URL.decode(secretKey);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }

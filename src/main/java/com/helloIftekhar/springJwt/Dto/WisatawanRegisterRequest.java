@@ -55,6 +55,4 @@ public class WisatawanRegisterRequest {
     public void setNomorTeleponw(String nomorTeleponw) {
         this.nomorTeleponw = nomorTeleponw;
     }
-
-    
 }

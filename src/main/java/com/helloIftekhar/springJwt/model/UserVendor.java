@@ -5,7 +5,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.*;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.UUID;
@@ -46,8 +45,19 @@ public class UserVendor implements UserDetails {
     @Column(name = "facebook")
     private String facebookv;
 
+    @Column(name = "deskripsi")
+    private String deskripsi;
+
     @Enumerated(EnumType.STRING)
     private Role role = Role.VENDOR;
+
+    @Lob
+    @Column(name = "photo", columnDefinition = "blob")
+    private byte[] photov;
+
+    @Lob
+    @Column(name = "documentation", columnDefinition = "blob")
+    private byte[] documentationv;
 
     public UserVendor() {
     }
@@ -57,8 +67,8 @@ public class UserVendor implements UserDetails {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
 
-    public UserVendor(String id_vendor, String emailv, String passwordv, String confirmPasswordv, String namaVendorv,
-            String alamatv, String nomorTeleponv, String instagramv, String tiktokv, String facebookv, Role role) {
+    public UserVendor(String id_vendor, String emailv, String passwordv, String namaVendorv,
+            String alamatv, String nomorTeleponv, String instagramv, String tiktokv, String facebookv, Role role, String deskripsi, byte[] photov, byte[] documentationv) {
         this.id_vendor = id_vendor;
         this.emailv = emailv;
         this.passwordv = passwordv;
@@ -69,6 +79,9 @@ public class UserVendor implements UserDetails {
         this.tiktokv = tiktokv;
         this.facebookv = facebookv;
         this.role = role;
+        this.deskripsi = deskripsi;
+        this.photov = photov;
+        this.documentationv = documentationv;
     }
 
     @Override
@@ -83,22 +96,22 @@ public class UserVendor implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true; // Implement according to your logic
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true; // Implement according to your logic
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true; // Implement according to your logic
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return true; // Implement according to your logic
+        return true;
     }
 
     public Integer getId() {
@@ -187,6 +200,38 @@ public class UserVendor implements UserDetails {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    public byte[] getPhotov() {
+        return photov;
+    }
+
+    public void setPhotov(byte[] photov) {
+        // Validate photo size
+        if (photov != null && photov.length > 2 * 1024 * 1024) {
+            throw new IllegalArgumentException("Photo size exceeds the limit of 2MB");
+        }
+        this.photov = photov;
+    }
+
+    public byte[] getDocumentationv() {
+        return documentationv;
+    }
+
+    public void setDocumentationv(byte[] documentationv) {
+        // Validate documentation size
+        if (documentationv != null && documentationv.length > 2 * 1024 * 1024) {
+            throw new IllegalArgumentException("Documentation size exceeds the limit of 2MB");
+        }
+        this.documentationv = documentationv;
     }
 
     public enum Role {

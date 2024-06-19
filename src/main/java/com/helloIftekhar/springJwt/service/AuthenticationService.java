@@ -152,46 +152,54 @@ public class AuthenticationService {
         }
     }
 
-    public Optional<UserWisat> getWisatawanByEmail(String email) {
-        return userWisatRepository.findByEmailw(email);
+    public Optional<UserWisat> getWisatawanByEmail(String emailw) {
+        return userWisatRepository.findByEmailw(emailw);
     }
 
-    public Optional<UserVendor> getVendorByEmail(String email) {
-        return vendorRepository.findByEmailv(email);
+    public Optional<UserVendor> getVendorByEmail(String emailv) {
+        return vendorRepository.findByEmailv(emailv);
     }
 
-    public Optional<UserWisat> updateWisatawan(String email, UserWisat updatedUserWisat) {
-        Optional<UserWisat> existingUserWisat = userWisatRepository.findByEmailw(email);
+    public Optional<UserWisat> updateWisatawan(String emailw, UserWisat updatedUserWisat) {
+        Optional<UserWisat> existingUserWisat = userWisatRepository.findByEmailw(emailw);
         if (existingUserWisat.isPresent()) {
             UserWisat userWisat = existingUserWisat.get();
+
             userWisat.setNamaLengkapw(updatedUserWisat.getNamaLengkapw());
             userWisat.setJenisKelaminw(updatedUserWisat.getJenisKelaminw());
             userWisat.setTanggalLahirw(updatedUserWisat.getTanggalLahirw());
             userWisat.setKotaw(updatedUserWisat.getKotaw());
             userWisat.setNomorTeleponw(updatedUserWisat.getNomorTeleponw());
-            // update lainnya sesuai kebutuhan
+            userWisat.setPhotow(updatedUserWisat.getPhotow()); // Optional jika ingin mengupdate foto
+
             userWisatRepository.save(userWisat);
             return Optional.of(userWisat);
         }
         return Optional.empty();
     }
+    
 
-    public Optional<UserVendor> updateVendor(String email, UserVendor updatedUserVendor) {
-        Optional<UserVendor> existingUserVendor = vendorRepository.findByEmailv(email);
+    public Optional<UserVendor> updateVendorProfile(String emailv, UserVendor updatedUserVendor) {
+        Optional<UserVendor> existingUserVendor = vendorRepository.findByEmailv(emailv);
         if (existingUserVendor.isPresent()) {
             UserVendor userVendor = existingUserVendor.get();
+
             userVendor.setNamaVendorv(updatedUserVendor.getNamaVendorv());
             userVendor.setAlamatv(updatedUserVendor.getAlamatv());
             userVendor.setNomorTeleponv(updatedUserVendor.getNomorTeleponv());
             userVendor.setInstagramv(updatedUserVendor.getInstagramv());
             userVendor.setTiktokv(updatedUserVendor.getTiktokv());
             userVendor.setFacebookv(updatedUserVendor.getFacebookv());
-            // update lainnya sesuai kebutuhan
+            userVendor.setDeskripsi(updatedUserVendor.getDeskripsi());
+            userVendor.setPhotov(updatedUserVendor.getPhotov()); // Optional jika ingin mengupdate foto
+            userVendor.setDocumentationv(updatedUserVendor.getDocumentationv()); // Optional jika ingin mengupdate dokumen
+
             vendorRepository.save(userVendor);
             return Optional.of(userVendor);
         }
         return Optional.empty();
     }
+    
 
     public boolean deleteWisatawan(String email) {
         Optional<UserWisat> userWisat = userWisatRepository.findByEmailw(email);

@@ -29,8 +29,9 @@ public class ProdukModel {
     @Column(name = "Harga", columnDefinition = "DOUBLE")
     private double harga;
 
-    @Column(name = "Foto", columnDefinition = "VARCHAR(255)") // Ubah ke VARCHAR sesuai kebutuhan
-    private String foto;
+    @Lob
+    @Column(name = "Foto", columnDefinition = "BLOB")
+    private byte[] foto;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "Kategori", columnDefinition = "VARCHAR(255)")
