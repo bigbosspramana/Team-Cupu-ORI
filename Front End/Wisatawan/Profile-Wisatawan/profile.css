@@ -15,19 +15,34 @@
   }
   
   .navbar {
-	  box-shadow: 0 0 10px 0 rgba(162, 162, 162, 0.526);
-	  position: relative;
-	  top: 15px;
-	  z-index: 1000;
-	  margin: 0 auto;
-	  width: 98%;
-	  padding: 14px 10px;
-	  border-radius: 8px;
-	  background-color: #46c3dc;
-  }
+	box-shadow: 0 0 10px 0 rgba(162, 162, 162, 0.526);
+	position: absolute; 
+  align-content: center;
+  align-items: center;
+  left: 15px;
+	top: 15px;
+	z-index: 1000;
+	margin: 0 auto;
+	width: 98%;
+	padding: 14px 10px;
+	border-radius: 8px;
+	background-color: #46c3dc;
+}
   
   .container-fluid .navbar-brand {
 	  color: white;
+  }
+  
+  .carousel-inner img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+	.carousel-caption {
+	  display: none;
+	}
   }
   
   .container-fluid a {
@@ -83,11 +98,10 @@
 	  /* .container-fluid .collapse .foto-profile {
 		  margin-left: 10px;
 	  } */
-  
 	  .container-fluid a {
-		  padding: 8px;
-	  }
-  }
+		padding: 8px;
+	}
+}
 
 .container-fluid .collapse .foto-profile {
 	display: flex;

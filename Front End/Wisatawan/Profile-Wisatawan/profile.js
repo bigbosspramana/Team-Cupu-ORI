@@ -27,27 +27,6 @@ inputFile.addEventListener('change', function () {
 	}
 })
 
-instagramButton.addEventListener('click', function() {
-	const link = instagramLinkText.getAttribute('data-link');
-	if (link) {
-		window.open(link, '_blank');
-	}
-});
-
-tiktokButton.addEventListener('click', function() {
-	const link = tiktokLinkText.getAttribute('data-link');
-	if (link) {
-		window.open(link, '_blank');
-	}
-});
-
-facebookButton.addEventListener('click', function() {
-	const link = facebookLinkText.getAttribute('data-link');
-	if (link) {
-		window.open(link, '_blank');
-	}
-});
-
 function editProfile() {
     document.getElementById('wisatawan-name').disabled = false;
     document.getElementById('wisatawan-number').disabled = false;

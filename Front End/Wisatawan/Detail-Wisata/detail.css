@@ -1,0 +1,240 @@
+.dashboard{
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-repeat: no-repeat;
+height: 12rcap;
+}
+
+/* NavBar */
+.clickable-text {
+cursor: pointer; /* Change cursor to pointer (clickable hand) */
+}
+
+button.navbar-toggler {
+    border: none;
+}
+
+button.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+button.navbar-toggler i {
+    color: white;
+}
+
+.navbar {
+    box-shadow: 0 0 10px 0 rgba(162, 162, 162, 0.526);
+    position: absolute; 
+align-content: center;
+align-items: center;
+left: 15px;
+    top: 15px;
+    z-index: 1000;
+    margin: 0 auto;
+    width: 98%;
+    padding: 14px 10px;
+    border-radius: 8px;
+    background-color: #46c3dc;
+}
+
+.container-fluid .navbar-brand {
+    color: white;
+}
+
+.carousel-inner img {
+width: 100%;
+height: auto;
+object-fit: cover;
+}
+
+@media (max-width: 768px) {
+.carousel-caption {
+    display: none;
+}
+}
+
+.container-fluid a {
+    border-radius: 20px;
+    margin-right: 0;
+    transition: 1s;
+}
+
+.container-fluid a:hover {
+    color: black;
+    animation: buttonNav 1s both;
+    margin-right: 10px;
+}
+
+.container-fluid .navbar-brand p {
+    font-family: 'DancingScriptB', 'sans-serif';
+    margin: auto 10px;
+}
+
+.collapse .sukasukasaya {
+    display: flex;
+}
+
+.container-fluid .collapse .foto-profile {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #5c5c5d;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.foto-profile i {
+    font-size: 22px;
+    margin: auto;
+    border-radius: 20px;
+    color: #b6b6b6;
+}
+
+@keyframes buttonNav {
+    from {
+        background-color: #EAF4F4;
+        border-radius: 20px;
+    }
+
+    to {
+        background-color: #EAF4F4;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 992px){
+    /* .container-fluid .collapse .foto-profile {
+        margin-left: 10px;
+    } */
+
+    .container-fluid a {
+        padding: 8px;
+    }
+}
+
+/* main-kontainer */
+.kontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    padding-left: 12px;
+    margin: 20px;
+}
+
+/* gambar-detail */
+.containerr {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 32%;
+    padding-left: 12px;
+    margin: 20px;
+}
+.main-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    background-color: #f0f0f0; /* Background color to fill the space if image doesn't fill it completely */
+}
+.thumbnail-container {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+.thumbnail {
+    margin: 5px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+.thumbnail img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background-color: #f0f0f0; /* Background color to fill the space if image doesn't fill it completely */
+}
+
+.kontainer-text {
+    flex: 1; /* Occupy remaining space */
+    margin-left: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .main-image {
+        max-width: 400px;
+    }
+    .thumbnail img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .kontainer {
+        flex-direction: column;
+    }
+    .containerr {
+        width: 100%;
+        padding-left: 8px;
+        margin: 15px 0;
+    }
+    .main-image {
+        max-width: 300px;
+    }
+    .thumbnail img {
+        width: 60px;
+        height: 60px;
+    }
+    .kontainer-text {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .containerr {
+        width: 100%;
+        padding-left: 5px;
+        margin: 10px 0;
+    }
+    .main-image {
+        width: 100%;
+        height: auto; /* Adjust height to maintain aspect ratio */
+    }
+    .thumbnail-container {
+        margin-top: 5px;
+    }
+    .thumbnail img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/* text-detail */
+.text-kontainer{
+    align-items: flex-start;
+    width: 80%;
+    padding: 20px;
+    align-content: space-between;
+}
+
+.deskripsi {
+    background-color: #f0f0f0;  /* Warna abu-abu */
+    border: 1px solid #000;      /* Garis pembatas hitam */
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 29rcap;
+}
+
+.location-icon {
+    font-size: 1.2em; /* Adjust icon size */
+    vertical-align: middle; /* Align icon with text */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.text-kontainer h1, .text-kontainer h2, .deskripsi p {
+    margin-bottom: 15px; /* Add spacing to avoid text cramping */
+}
