@@ -55,7 +55,7 @@ public class AuthenticationService {
 
     public AuthenticationResponse registerWisatawan(WisatawanRegisterRequest request) {
         if (isEmailExists(request.getEmailw())) {
-            return new AuthenticationResponse(null, null, "Email Already Exist");
+            return new AuthenticationResponse(null, null, "Email Already Exist", "WISATAWAN");
         }
 
         UserWisat user = new UserWisat();
@@ -75,12 +75,12 @@ public class AuthenticationService {
 
         saveUserToken(accessToken, refreshToken, user);
 
-        return new AuthenticationResponse(accessToken, refreshToken, "User registration was successful");
+        return new AuthenticationResponse(accessToken, refreshToken, "User registration was successful", "WISATAWAN");
     }
 
     public AuthenticationResponse registerVendor(VendorRegisterRequest request) {
         if (isEmailExists(request.getEmailv())) {
-            return new AuthenticationResponse(null, null, "Email Already Exist");
+            return new AuthenticationResponse(null, null, "Email Already Exist", "VENDOR");
         }
 
         UserVendor vendor = new UserVendor();
@@ -101,55 +101,85 @@ public class AuthenticationService {
 
         saveVendorToken(accessToken, refreshToken, vendor);
 
-        return new AuthenticationResponse(accessToken, refreshToken, "Vendor registration was successful");
+        return new AuthenticationResponse(accessToken, refreshToken, "Vendor registration was successful", "VENDOR");
     }
 
-    public AuthenticationResponse authenticateWisat(UserWisat request) {
-        try {
-            authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(request.getEmailw(), request.getPasswordw()));
-            UserWisat user = userWisatRepository.findByEmailw(request.getEmailw())
-                    .orElseThrow(() -> new RuntimeException("User not found"));
+    // public AuthenticationResponse authenticateWisat(UserWisat request) {
+    //     try {
+    //         authenticationManager
+    //                 .authenticate(new UsernamePasswordAuthenticationToken(request.getEmailw(), request.getPasswordw()));
+    //         UserWisat user = userWisatRepository.findByEmailw(request.getEmailw())
+    //                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-            String accessToken = jwtService.generateAccessToken(user);
-            String refreshToken = jwtService.generateRefreshToken(user);
+    //         String accessToken = jwtService.generateAccessToken(user);
+    //         String refreshToken = jwtService.generateRefreshToken(user);
 
-            saveUserToken(accessToken, refreshToken, user);
+    //         saveUserToken(accessToken, refreshToken, user);
 
-            return new AuthenticationResponse(accessToken, refreshToken, "Login successful");
-        } catch (Exception e) {
-            return new AuthenticationResponse(null, null, "Invalid credentials");
-        }
-    }
+    //         return new AuthenticationResponse(accessToken, refreshToken, "Login successful");
+    //     } catch (Exception e) {
+    //         return new AuthenticationResponse(null, null, "Invalid credentials");
+    //     }
+    // }
 
-    public AuthenticationResponse authenticateVendor(UserVendor requestvVendor) {
-        try {
-            // authenticationManager.authenticate(new
-            // UsernamePasswordAuthenticationToken(requestvVendor.getEmailv(),
-            // requestvVendor.getPasswordv()));
-            // UserVendor vendor = vendorRepository.findByEmailv(requestvVendor.getEmailv())
-            // .orElseThrow(() -> new RuntimeException("Vendor not found"));
+    // public AuthenticationResponse authenticateVendor(UserVendor requestvVendor) {
+    //     try {
+    //         // authenticationManager.authenticate(new
+    //         // UsernamePasswordAuthenticationToken(requestvVendor.getEmailv(),
+    //         // requestvVendor.getPasswordv()));
+    //         // UserVendor vendor = vendorRepository.findByEmailv(requestvVendor.getEmailv())
+    //         // .orElseThrow(() -> new RuntimeException("Vendor not found"));
 
-            Optional<UserVendor> vendorOpt = vendorRepository.findByEmailv(requestvVendor.getEmailv());
-            if (vendorOpt.isPresent()) {
-                UserVendor vendor = vendorOpt.get();
-                if (passwordEncoder.matches(requestvVendor.getPassword(), vendor.getPassword())) {
+    //         Optional<UserVendor> vendorOpt = vendorRepository.findByEmailv(requestvVendor.getEmailv());
+    //         if (vendorOpt.isPresent()) {
+    //             UserVendor vendor = vendorOpt.get();
+    //             if (passwordEncoder.matches(requestvVendor.getPassword(), vendor.getPassword())) {
 
-                    String accessToken = jwtService.generateAccessToken(vendor);
-                    String refreshToken = jwtService.generateRefreshToken(vendor);
+    //                 String accessToken = jwtService.generateAccessToken(vendor);
+    //                 String refreshToken = jwtService.generateRefreshToken(vendor);
 
-                    saveVendorToken(accessToken, refreshToken, vendor);
+    //                 saveVendorToken(accessToken, refreshToken, vendor);
 
-                    return new AuthenticationResponse(accessToken, refreshToken, "Login successful");
-                } else {
-                    return new AuthenticationResponse(null, null, "Password Is Wrong");
-                }
+    //                 return new AuthenticationResponse(accessToken, refreshToken, "Login successful");
+    //             } else {
+    //                 return new AuthenticationResponse(null, null, "Password Is Wrong");
+    //             }
+    //         } else {
+    //             return new AuthenticationResponse(null, null, "User Not Found");
+    //         }
+    //     } catch (Exception e) {
+    //         return new AuthenticationResponse(null, null, e.getMessage());
+    //     }
+    // }
+
+    public AuthenticationResponse authenticate(String email, String password) {
+        Optional<UserWisat> wisatawanOpt = userWisatRepository.findByEmailw(email);
+        if (wisatawanOpt.isPresent()) {
+            UserWisat wisatawan = wisatawanOpt.get();
+            if (passwordEncoder.matches(password, wisatawan.getPasswordw())) {
+                String accessToken = jwtService.generateAccessToken(wisatawan);
+                String refreshToken = jwtService.generateRefreshToken(wisatawan);
+                saveUserToken(accessToken, refreshToken, wisatawan);
+                return new AuthenticationResponse(accessToken, refreshToken, "Login successful", "WISATAWAN");
             } else {
-                return new AuthenticationResponse(null, null, "User Not Found");
+                return new AuthenticationResponse(null, null, "Invalid credentials", "WISATAWAN");
             }
-        } catch (Exception e) {
-            return new AuthenticationResponse(null, null, e.getMessage());
         }
+
+        Optional<UserVendor> vendorOpt = vendorRepository.findByEmailv(email);
+        if (vendorOpt.isPresent()) {
+            UserVendor vendor = vendorOpt.get();
+            if (passwordEncoder.matches(password, vendor.getPasswordv())) {
+                String accessToken = jwtService.generateAccessToken(vendor);
+                String refreshToken = jwtService.generateRefreshToken(vendor);
+                saveVendorToken(accessToken, refreshToken, vendor);
+                return new AuthenticationResponse(accessToken, refreshToken, "Login successful", "VENDOR");
+            } else {
+                return new AuthenticationResponse(null, null, "Invalid credentials", "VENDOR");
+            }
+        }
+
+        return new AuthenticationResponse(null, null, "User not found", "VENDOR");
     }
 
     public Optional<UserWisat> getWisatawanByEmail(String emailw) {
