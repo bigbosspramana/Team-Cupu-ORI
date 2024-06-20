@@ -7,7 +7,6 @@ import java.util.Date;
 public class WisatawanRegisterRequest {
     private String emailw;
     private String passwordw;
-    private String konfirmasipasswordw;
     private String namaLengkapw;
     private JenisKelamin jenisKelaminw;
     private Date tanggalLahirw;
@@ -25,12 +24,6 @@ public class WisatawanRegisterRequest {
     }
     public void setPasswordw(String passwordw) {
         this.passwordw = passwordw;
-    }
-    public String getKonfirmasipasswordw() {
-        return konfirmasipasswordw;
-    }
-    public void setKonfirmasipasswordw(String konfirmasipasswordw) {
-        this.konfirmasipasswordw = konfirmasipasswordw;
     }
     public String getNamaLengkapw() {
         return namaLengkapw;

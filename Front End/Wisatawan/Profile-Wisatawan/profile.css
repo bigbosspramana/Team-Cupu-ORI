@@ -1,3 +1,27 @@
+@font-face {
+	font-family: 'HindSiliguriSB';
+	src: url('../Aset/font/Hind_Siliguri/HindSiliguri-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriR';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriB';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DancingScriptB';
+    src: url('../Aset/font/Dancing_Script/DancingScript-Bold.woff') format('woff');
+}
+
+* {
+	font-family: 'HindSiliguriR', sans-serif;
+}
+
 .clickable-text {
 	cursor: pointer; /* Change cursor to pointer (clickable hand) */
   }
@@ -239,7 +263,7 @@
 	width: 100%;
 	padding: 16px 0;
 	border-radius: 15px;
-	background: rgb(47, 47, 89);
+	background: #0096C7;
 	color: #ffffff;
 	font-weight: 500;
 	font-size: 16px;
@@ -252,7 +276,7 @@
 .select-image:hover {
 	background: darkblue;
 }
-
+	
 .btn-sosmed {
 	display: flex;
 }

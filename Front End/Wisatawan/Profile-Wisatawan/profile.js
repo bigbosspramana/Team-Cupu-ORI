@@ -36,6 +36,7 @@ function editProfile() {
     document.querySelector('.edit-btn').hidden = true;
     document.querySelector('.save-btn').hidden = false;
     document.querySelector('.cancel-btn').hidden = false;
+	document.querySelector('.select-image').hidden = false; // Show Select Image button
   }
   
   function saveProfile() {

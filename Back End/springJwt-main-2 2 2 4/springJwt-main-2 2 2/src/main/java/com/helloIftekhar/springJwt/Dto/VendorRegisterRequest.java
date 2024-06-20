@@ -3,7 +3,6 @@ package com.helloIftekhar.springJwt.Dto;
 public class VendorRegisterRequest {
     private String emailv;
     private String passwordv;
-    private String confirmPasswordv;
     private String namaVendorv;
     private String alamatv;
     private String nomorTeleponv;
@@ -22,12 +21,6 @@ public class VendorRegisterRequest {
     }
     public void setPasswordv(String passwordv) {
         this.passwordv = passwordv;
-    }
-    public String getConfirmPasswordv() {
-        return confirmPasswordv;
-    }
-    public void setConfirmPasswordv(String confirmPasswordv) {
-        this.confirmPasswordv = confirmPasswordv;
     }
     public String getNamaVendorv() {
         return namaVendorv;

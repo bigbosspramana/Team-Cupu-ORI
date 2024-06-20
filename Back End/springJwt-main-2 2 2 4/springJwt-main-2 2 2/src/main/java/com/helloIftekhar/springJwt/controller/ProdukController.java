@@ -12,12 +12,13 @@ import com.helloIftekhar.springJwt.repository.ProdukRepository;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/control/produk")
+@CrossOrigin
+@RequestMapping
 @RequiredArgsConstructor
 public class ProdukController {
     private final ProdukRepository produkRepository;
 
-    @GetMapping
+    @GetMapping("/control/produk")
     public ResponseEntity<Iterable<ProdukModel>> getAllInventory() {
         Iterable<ProdukModel> produk = produkRepository.findAll();
         if (!produk.iterator().hasNext()) {
@@ -26,7 +27,7 @@ public class ProdukController {
         return new ResponseEntity<>(produk, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/control/produk")
     public ResponseEntity<ProdukModel> addNewProduk(@RequestBody ProdukModel produk) {
         try {
             ProdukModel newProduk = produkRepository.save(produk);
@@ -36,7 +37,7 @@ public class ProdukController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/control/produk/{id}")
     public ResponseEntity<ProdukModel> updateInventoryById(@PathVariable Long id, @RequestBody ProdukModel produkUpdate) {
         Optional<ProdukModel> optionalProduk = produkRepository.findById(id);
         if (optionalProduk.isPresent()) {

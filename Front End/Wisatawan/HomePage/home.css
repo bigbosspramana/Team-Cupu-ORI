@@ -1,3 +1,27 @@
+@font-face {
+	font-family: 'HindSiliguriSB';
+	src: url('../Aset/font/Hind_Siliguri/HindSiliguri-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriR';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriB';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DancingScriptB';
+    src: url('../Aset/font/Dancing_Script/DancingScript-Bold.woff') format('woff');
+}
+
+* {
+	font-family: 'HindSiliguriR', sans-serif;
+}
+
 .dashboard{
   display: flex;
   flex-direction: column;
@@ -313,7 +337,7 @@ button.navbar-toggler i {
 .image1 {
   width: 480px;
   height: 320px;
-  background-image: url(../Aset/img/Pantai-kecil.jpg);
+  background-image: url(../Aset/img/pexels-jefriwibawa-1387037.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -328,7 +352,7 @@ button.navbar-toggler i {
 .image2 {
   width: 480px;
   height: 320px;
-  background-image: url(../Aset/img/pulau-kecil.jpg);
+  background-image: url(../Aset/img/Pulau-Saumlaki-Credit-IDN-Times.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -343,7 +367,7 @@ button.navbar-toggler i {
 .image3 {
   width: 480px;
   height: 320px;
-  background-image: url(../Aset/img/Pegunungan-kecil.jpg);
+  background-image: url(../Aset/img/pexels-sanmane-1365425.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -424,11 +448,10 @@ h2{
 .footer-section{
   width: 100%;
   display: flex;
-  color: #e0e0e0;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 1 rem 0;
-  background-color: rgb(32, 30, 30);
+  background-color: #ADE8F4;
 }
 
 .footer-section h2{
@@ -452,7 +475,7 @@ h2{
 }
 
 a{
-  color: white;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
@@ -463,7 +486,7 @@ a{
 }
 
 .footer-section a:hover{
-  color: #f46d13;
+  color: #acacac;
 }
 
 .footer-item{

@@ -18,7 +18,7 @@ public class UserVendor implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    
+
     @Column(name = "id_vendor")
     private String id_vendor = UUID.randomUUID().toString();
 
@@ -27,9 +27,6 @@ public class UserVendor implements UserDetails {
 
     @Column(name = "password")
     private String passwordv;
-
-    // @Column(name = "confirm_password")
-    // private String confirmPasswordv;
 
     @Column(name = "nama_vendor")
     private String namaVendorv;
@@ -60,12 +57,11 @@ public class UserVendor implements UserDetails {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
 
-    public UserVendor(String id_vendor, String emailv, String passwordv, String namaVendorv,
+    public UserVendor(String id_vendor, String emailv, String passwordv, String confirmPasswordv, String namaVendorv,
             String alamatv, String nomorTeleponv, String instagramv, String tiktokv, String facebookv, Role role) {
         this.id_vendor = id_vendor;
         this.emailv = emailv;
         this.passwordv = passwordv;
-        // this.confirmPasswordv = confirmPasswordv;
         this.namaVendorv = namaVendorv;
         this.alamatv = alamatv;
         this.nomorTeleponv = nomorTeleponv;
@@ -136,14 +132,6 @@ public class UserVendor implements UserDetails {
     public void setPasswordv(String passwordv) {
         this.passwordv = passwordv;
     }
-
-    // public String getConfirmPasswordv() {
-    //     return confirmPasswordv;
-    // }
-
-    // public void setConfirmPasswordv(String confirmPasswordv) {
-    //     this.confirmPasswordv = confirmPasswordv;
-    // }
 
     public String getNamaVendorv() {
         return namaVendorv;

@@ -1,3 +1,27 @@
+@font-face {
+	font-family: 'HindSiliguriSB';
+	src: url('../Aset/font/Hind_Siliguri/HindSiliguri-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriR';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriB';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DancingScriptB';
+    src: url('../Aset/font/Dancing_Script/DancingScript-Bold.woff') format('woff');
+}
+
+* {
+	font-family: 'HindSiliguriR', sans-serif;
+}
+
 .dashboard{
 display: flex;
 flex-direction: column;
@@ -238,3 +262,82 @@ object-fit: cover;
 .text-kontainer h1, .text-kontainer h2, .deskripsi p {
     margin-bottom: 15px; /* Add spacing to avoid text cramping */
 }
+
+/* footer */
+.footer-section{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1 rem 0;
+    background-color: #ADE8F4;
+  }
+  
+  .footer-section h2{
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .footer-section h2::after{
+    content: '';
+    width: 4rem;
+    height: .2rem;
+    background: #e65b00;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+  }
+  
+  .footer-section p{
+    transition: all .2s linear;
+    margin-bottom: .6rem;
+  }
+  
+  a{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .footer-section p:hover{
+    transition: all .2s linear;
+    transform: translateX(4px);
+  }
+  
+  .footer-section a:hover{
+    color: #acacac;
+  }
+  
+  .footer-item{
+    margin: 1rem;
+  }
+  
+  .footer-item ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+  }
+  
+  .footer-item li{
+    margin-right: 1rem;
+  }
+  
+  .social ul li{
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all .2s linear;
+  }
+  
+  .social ul il:hover{
+    color: #e65b00;
+    transform: scale(1.1);
+    transition: all .2s linear;
+  }
+  
+  @media screen and (max-width: 230px) {
+    .footer-section{
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 2rem;
+    }
+  }

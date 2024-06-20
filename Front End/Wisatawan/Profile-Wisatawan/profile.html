@@ -12,6 +12,7 @@
     crossorigin="anonymous"></script>
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="../Aset/img/logo-head-transformed 2.png" type="image/x-icon">
   <title>Profile Wisatawan</title>
 </head>
 
@@ -71,23 +72,29 @@
       <div class="left-section">
         <input type="file" id="file" accept="image/*" hidden>
         <div class="img-area" data-img="" style="max-width: 100%;">
-          <i class='bx bxs-cloud-upload icon'></i>
-          <h3>Upload Image</h3>
-          <p>Image size must be less than <span>2MB</span></p>
+            <i class='bx bxs-cloud-upload icon'></i>
+            <h3>Upload Image</h3>
+            <p>Image size must be less than <span>2MB</span></p>
         </div>
-        <button class="select-image" style="max-width: 100%;">Select Image</button>
+        <button class="select-image" style="max-width: 100%;" hidden>
+            <i class="fa-solid fa-images"></i>
+            Select Image
+        </button>
         <div class="buttons" style="max-width: 100%;">
-          <button class="edit-btn" onclick="editProfile()">Edit</button>
-          <div class="btn-edit row">
-            <div class="col-xs-12 col-sm-6">
-              <button class="save-btn" onclick="saveProfile()" hidden>Save</button>
+            <button class="edit-btn" onclick="editProfile()">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Edit
+            </button>
+            <div class="btn-edit row">
+                <div class="col-xs-12 col-sm-6">
+                    <button class="save-btn" onclick="saveProfile()" hidden>Save</button>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <button class="cancel-btn" onclick="cancelEdit()" hidden>Cancel</button>
+                </div>
             </div>
-            <div class="col-xs-12 col-sm-6">
-              <button class="cancel-btn" onclick="cancelEdit()" hidden>Cancel</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
       <div class="tengah"></div>
       <div class="right-section">
         <div class="profile-info">
@@ -104,19 +111,18 @@
             <input type="email" id="wisatawan-address" class="form-control" placeholder="bapakbudi@example.com" disabled>
           </div>
           <div class="col-12">
-            <label for="wisatawan-city" class="form-label label-mt">Tanggal Bergabung</label>
-            <input type="date" id="wisatawan-city" class="form-control" disabled>
-          </div>
+            <label for="wisatawan-city" class="form-label label-mt">Jenis Kelamin</label>
+            <select id="wisatawan-city" class="form-control" disabled>
+                <option value="Jenis Kelamin">Jenis Kelamin</option>
+                <option value="male">Laki-laki</option>
+                <option value="female">Perempuan</option>
+            </select>
+        </div>
           <div class="button-acc" style="margin-top: 24px;">
             <div class="btn-layer row">
               <div class="col-md-4 col-sm-12">
                 <button class="change-pass">
                   Ubah Kata Sandi
-                </button>
-              </div>
-              <div class="col-md-4 col-sm-12">
-                <button class="remove-acc">
-                  Hapus Akun
                 </button>
               </div>
               <div class="col-md-4 col-sm-12">
