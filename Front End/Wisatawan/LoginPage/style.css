@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'HindSiliguriSB';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriR';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HindSiliguriB';
+    src: url('../Aset/font/Hind_Siliguri/HindSiliguri-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DancingScriptB';
+    src: url('../Aset/font/Dancing_Script/DancingScript-Bold.woff') format('woff');
+}
+
+* {
+    font-family: 'HindSiliguriR', sans-serif;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -13,44 +37,60 @@ body, html {
 .container {
     display: flex;
     height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../Aset/img/pexels-asadphoto-457882.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .left-section {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../Aset/img/pexels-asadphoto-457882.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
 }
 
-.home2 {
-    width: 500px;
-    flex-shrink: 0;
+.head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 300px 0;
+}
+
+.head .font p {
+    font-family: 'DancingScriptB', 'serif';
+    font-weight: 500;
+    font-size: 70px;
+    color: white;
+    text-shadow: 0 0 20px #454545c1;
+}
+
+.logo {
+    max-width: 210px;
 }
 
 .right-section {
-    flex: 0.5;
+    padding: 25px;
+    transition: 1s;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f0f0f0;
 }
 
 .login-form {
-    background: #e0e0e0;
+    background: transparent;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
-}
-
-.login-form h2 {
-    margin-bottom: 20px;
-    text-align: center;
+    width: 360px;
 }
 
 .login-form label {
@@ -59,12 +99,16 @@ body, html {
     font-weight: bold;
 }
 
+.login-form .password-label {
+    margin-top: 22px;
+}
+
 .login-form input {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     display: block;
     margin: 0 auto;
 }
@@ -94,6 +138,7 @@ body, html {
 .login-form button.google-login {
     background-color: #ababab;
     margin-top: 10px;
+    color: black;
 }
 
 .login-form .register-link {
@@ -106,28 +151,24 @@ body, html {
     text-decoration: none;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
+
     .left-section {
         flex: 1;
         height: 50vh;
     }
+
     .right-section {
         flex: 1;
         height: 50vh;
     }
 }
 
-@media(max-width: 850px) {
+@media (max-width: 850px) {
     .left-section {
         display: none;
     }
-
-    .home2 {
-        width: 100%;
-    }
 }
-

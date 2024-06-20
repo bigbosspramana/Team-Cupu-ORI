@@ -46,4 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Email:", email);
         console.log("Password:", password);
     });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 54cde649e4dafc1254df685c73645ad2da78b060

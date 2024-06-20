@@ -27,43 +27,23 @@ inputFile.addEventListener('change', function () {
 	}
 })
 
-instagramButton.addEventListener('click', function() {
-	const link = instagramLinkText.getAttribute('data-link');
-	if (link) {
-		window.open(link, '_blank');
-	}
-});
-
-tiktokButton.addEventListener('click', function() {
-	const link = tiktokLinkText.getAttribute('data-link');
-	if (link) {
-		window.open(link, '_blank');
-	}
-});
-
-facebookButton.addEventListener('click', function() {
-	const link = facebookLinkText.getAttribute('data-link');
-	if (link) {
-		window.open(link, '_blank');
-	}
-});
-
 function editProfile() {
-    document.getElementById('vendor-name').disabled = false;
-    document.getElementById('vendor-number').disabled = false;
-    document.getElementById('vendor-address').disabled = false;
-    document.getElementById('vendor-city').disabled = false;
+    document.getElementById('wisatawan-name').disabled = false;
+    document.getElementById('wisatawan-number').disabled = false;
+    document.getElementById('wisatawan-address').disabled = false;
+    document.getElementById('wisatawan-city').disabled = false;
     
     document.querySelector('.edit-btn').hidden = true;
     document.querySelector('.save-btn').hidden = false;
     document.querySelector('.cancel-btn').hidden = false;
+	document.querySelector('.select-image').hidden = false; // Show Select Image button
   }
   
   function saveProfile() {
-    document.getElementById('vendor-name').disabled = true;
-    document.getElementById('vendor-number').disabled = true;
-    document.getElementById('vendor-address').disabled = true;
-    document.getElementById('vendor-city').disabled = true;
+    document.getElementById('wisatawan-name').disabled = true;
+    document.getElementById('wisatawan-number').disabled = true;
+    document.getElementById('wisatawan-address').disabled = true;
+    document.getElementById('wisatawan-city').disabled = true;
   
     document.querySelector('.edit-btn').hidden = false;
     document.querySelector('.save-btn').hidden = true;
@@ -73,10 +53,10 @@ function editProfile() {
   }
   
   function cancelEdit() {
-    document.getElementById('vendor-name').disabled = true;
-    document.getElementById('vendor-number').disabled = true;
-    document.getElementById('vendor-address').disabled = true;
-    document.getElementById('vendor-city').disabled = true;
+    document.getElementById('wisatawan-name').disabled = true;
+    document.getElementById('wisatawan-number').disabled = true;
+    document.getElementById('wisatawan-address').disabled = true;
+    document.getElementById('wisatawan-city').disabled = true;
   
     document.querySelector('.edit-btn').hidden = false;
     document.querySelector('.save-btn').hidden = true;

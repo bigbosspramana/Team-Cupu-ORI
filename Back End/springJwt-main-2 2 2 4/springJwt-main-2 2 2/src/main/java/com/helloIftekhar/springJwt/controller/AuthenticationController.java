@@ -58,14 +58,24 @@ public class AuthenticationController {
         return authService.refreshToken(request, response);
     }
 
+<<<<<<< HEAD
     @GetMapping("/profile/wisatawan/{emailw}")
     public ResponseEntity<UserWisat> getWisatawan(@PathVariable String emailw) {
+=======
+    @GetMapping("/profile/wisatawan/{id}")
+    public ResponseEntity<UserWisat> getWisatawan(@RequestParam String emailw) {
+>>>>>>> 54cde649e4dafc1254df685c73645ad2da78b060
         Optional<UserWisat> userWisat = authService.getWisatawanByEmail(emailw);
         return userWisat.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @GetMapping("/profile/vendor/{emailv}")
     public ResponseEntity<UserVendor> getVendor(@PathVariable String emailv) {
+=======
+    @GetMapping("/profile/vendor/{id}")
+    public ResponseEntity<UserVendor> getVendor(@RequestParam String emailv) {
+>>>>>>> 54cde649e4dafc1254df685c73645ad2da78b060
         Optional<UserVendor> userVendor = authService.getVendorByEmail(emailv);
         return userVendor.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }

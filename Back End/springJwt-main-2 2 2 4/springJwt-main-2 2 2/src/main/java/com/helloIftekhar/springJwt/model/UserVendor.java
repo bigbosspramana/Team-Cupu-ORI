@@ -57,7 +57,7 @@ public class UserVendor implements UserDetails {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
 
-    public UserVendor(String id_vendor, String emailv, String passwordv, String namaVendorv,
+    public UserVendor(String id_vendor, String emailv, String passwordv, String confirmPasswordv, String namaVendorv,
             String alamatv, String nomorTeleponv, String instagramv, String tiktokv, String facebookv, Role role) {
         this.id_vendor = id_vendor;
         this.emailv = emailv;

@@ -52,7 +52,7 @@ public class UserWisat implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<TokenWisat> tokens;
 
-    public UserWisat(String emailw, String passwordw, String namaLengkapw,
+    public UserWisat(String emailw, String passwordw, String konfirmasipasswordw, String namaLengkapw,
                      JenisKelamin jenisKelaminw, Date tanggalLahirw, Kota kotaw, String nomorTeleponw) {
         this.emailw = emailw;
         this.passwordw = passwordw;
