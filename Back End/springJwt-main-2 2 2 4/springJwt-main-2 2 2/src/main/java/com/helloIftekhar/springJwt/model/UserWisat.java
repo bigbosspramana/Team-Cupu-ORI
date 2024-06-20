@@ -28,9 +28,6 @@ public class UserWisat implements UserDetails {
     @Column(name = "password")
     private String passwordw;
 
-    // @Column(name = "konfirmasi_password")
-    // private String konfirmasipasswordw;
-
     @Column(name = "nama_lengkap")
     private String namaLengkapw;
 
@@ -59,7 +56,6 @@ public class UserWisat implements UserDetails {
                      JenisKelamin jenisKelaminw, Date tanggalLahirw, Kota kotaw, String nomorTeleponw) {
         this.emailw = emailw;
         this.passwordw = passwordw;
-        // this.konfirmasipasswordw = konfirmasipasswordw;
         this.namaLengkapw = namaLengkapw;
         this.jenisKelaminw = jenisKelaminw;
         this.tanggalLahirw = tanggalLahirw;
@@ -94,14 +90,6 @@ public class UserWisat implements UserDetails {
     public void setPasswordw(String passwordw) {
         this.passwordw = passwordw;
     }
-
-    // public String getKonfirmasipasswordw() {
-    //     return konfirmasipasswordw;
-    // }
-
-    // public void setKonfirmasipasswordw(String konfirmasipasswordw) {
-    //     this.konfirmasipasswordw = konfirmasipasswordw;
-    // }
 
     public String getNamaLengkapw() {
         return namaLengkapw;
@@ -199,7 +187,7 @@ public class UserWisat implements UserDetails {
     }
 
     public enum Kota {
-        JAKARTA, BANDUNG, MANOKWARI, BALI, YOGYAKARTA, SURABAYA, MEDAN, MAKASSAR, MALANG, LOMBOK, SEMARANG, PALEMBANG, MANADO, BATAM, BANJARMASIN, SOLO, BOGOR, DENPASAR, PADANG, BALIKPAPAN, PONTIANAK
+        Jakarta, Bandung, Manokwari, Bali, Yogyakarta, Surabaya, Medan, Makassar, Malang, Lombok, Semarang, Palembang, Manado, Batam, Banjarmasin, Solo, Bogor, Denpasar, Padang, Balikpapan, Pontianak
     }
 
     public String getId_wisatawan() {

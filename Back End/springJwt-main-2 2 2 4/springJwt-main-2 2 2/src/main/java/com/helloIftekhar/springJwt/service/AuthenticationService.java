@@ -1,5 +1,6 @@
 package com.helloIftekhar.springJwt.service;
 
+import com.helloIftekhar.springJwt.Dto.LoginRequest;
 import com.helloIftekhar.springJwt.Dto.VendorRegisterRequest;
 import com.helloIftekhar.springJwt.Dto.WisatawanRegisterRequest;
 import com.helloIftekhar.springJwt.model.AuthenticationResponse;
@@ -57,9 +58,6 @@ public class AuthenticationService {
         if (isEmailExists(request.getEmailw())) {
             return new AuthenticationResponse(null, null, "Email Already Exist");
         }
-        // if (!request.getPasswordw().equals(request.getKonfirmasipasswordw())) {
-        //     return new AuthenticationResponse(null, null, "Password and confirmation password do not match");
-        // }
 
         UserWisat user = new UserWisat();
         user.setEmailw(request.getEmailw());
@@ -85,9 +83,6 @@ public class AuthenticationService {
         if (isEmailExists(request.getEmailv())) {
             return new AuthenticationResponse(null, null, "Email Already Exist");
         }
-        // if (!request.getPasswordv().equals(request.getConfirmPasswordv())) {
-        //     return new AuthenticationResponse(null, null, "Password and confirmation password do not match");
-        // }
 
         UserVendor vendor = new UserVendor();
         vendor.setEmailv(request.getEmailv());
@@ -110,11 +105,11 @@ public class AuthenticationService {
         return new AuthenticationResponse(accessToken, refreshToken, "Vendor registration was successful");
     }
 
-    public AuthenticationResponse authenticateWisat(UserWisat request) {
+    public AuthenticationResponse authenticateWisat(LoginRequest request) {
         try {
             authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(request.getEmailw(), request.getPasswordw()));
-            UserWisat user = userWisatRepository.findByEmailw(request.getEmailw())
+                    .authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
+            UserWisat user = userWisatRepository.findByEmailw(request.getEmail())
                     .orElseThrow(() -> new RuntimeException("User not found"));
 
             String accessToken = jwtService.generateAccessToken(user);
@@ -128,7 +123,7 @@ public class AuthenticationService {
         }
     }
 
-    public AuthenticationResponse authenticateVendor(UserVendor requestvVendor) {
+    public AuthenticationResponse authenticateVendor(LoginRequest request) {
         try {
             // authenticationManager.authenticate(new
             // UsernamePasswordAuthenticationToken(requestvVendor.getEmailv(),
@@ -136,10 +131,10 @@ public class AuthenticationService {
             // UserVendor vendor = vendorRepository.findByEmailv(requestvVendor.getEmailv())
             // .orElseThrow(() -> new RuntimeException("Vendor not found"));
 
-            Optional<UserVendor> vendorOpt = vendorRepository.findByEmailv(requestvVendor.getEmailv());
+            Optional<UserVendor> vendorOpt = vendorRepository.findByEmailv(request.getEmail());
             if (vendorOpt.isPresent()) {
                 UserVendor vendor = vendorOpt.get();
-                if (passwordEncoder.matches(requestvVendor.getPassword(), vendor.getPassword())) {
+                if (passwordEncoder.matches(request.getPassword(), vendor.getPassword())) {
 
                     String accessToken = jwtService.generateAccessToken(vendor);
                     String refreshToken = jwtService.generateRefreshToken(vendor);

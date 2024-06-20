@@ -36,6 +36,23 @@ function showUploadText() {
 }
 showUploadText();
 
+// Fetch data from register endpoint in AuthenticationController.java
+fetch('/register')
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Handle success
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        // Handle errors
+    });
+
 const instagramButton = document.getElementById('instagram-button');
 const instagramLinkText = document.getElementById('instagram-link-text');
 const instagramInput = document.getElementById('instagram-input');
@@ -68,6 +85,12 @@ facebookButton.addEventListener('click', function () {
         window.open(link, '_blank');
     }
 });
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
 function editProfile() {
     document.getElementById('vendor-name').disabled = false;
@@ -181,6 +204,40 @@ function saveProfile() {
     if (!isValid) {
         return;
     }
+
+    const vendorData = {
+        vendorName: vendorName,
+        vendorAddress: vendorAddress,
+        vendorNumber: vendorNumber,
+        instagramLink: instagramInput,
+        tiktokLink: tiktokInput,
+        facebookLink: facebookInput
+    };
+
+    const token = getCookie('vendorToken');
+
+    fetch(`/profile/vendor`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(vendorData)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Tangani sukses
+    })
+    .catch(error => {
+        console.error('Ada masalah dengan operasi fetch:', error);
+        // Tangani kesalahan
+    });
 
     document.getElementById('vendor-name').disabled = true;
     document.getElementById('vendor-number').disabled = true;
@@ -538,3 +595,4 @@ function deleteAccount() {
     alert("Akun berhasil dihapus.");
     closeDeletePopup();
 }
+

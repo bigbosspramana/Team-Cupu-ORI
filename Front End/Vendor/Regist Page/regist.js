@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isValid = false;
     }
 
+
     formWisatawan.addEventListener('submit', async function (event) {
         event.preventDefault();
 
@@ -36,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.querySelectorAll('#formWisatawan input, #formWisatawan select').forEach(input => input.style.border = '');
 
-        // if (!email || !password || !confirmPassword || !fullName || !gender || !birthDate || !city || !phoneNumber) {
-        //     alert('Silahkan isi form data yang dibutuhkan.');
-        // }
+        if (!email && !password && !confirmPassword && !fullName && !gender && !birthDate & !city && !phoneNumber) {
+            alert('Silahkan isi form data yang dibutuhkan.');
+        }
 
         const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+$/;
         if (!email.match(emailRegex)) {
@@ -92,14 +93,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const formData = {
-            emailw: document.getElementById('email-w').value,
-            passwordw: document.getElementById('katasandi-w').value,
+            emailw: email,
+            passwordw: password,
             // konfirmasipasswordw: document.getElementById('konfirmasikatsan-w').value,
-            namaLengkapw: document.getElementById('namauser-w').value,
-            jenisKelaminw: document.getElementById('jkel-w').value,
-            tanggalLahirw: document.getElementById('tglLahir').value,
-            kotaw: document.getElementById('kota-w').value,
-            nomorTeleponw: document.getElementById('notelp-w').value
+            namaLengkapw: fullName,
+            jenisKelaminw: gender,
+            tanggalLahirw: birthDate,
+            kotaw: city,
+            nomorTeleponw: phoneNumber,
         };
 
         try {
@@ -114,12 +115,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const result = await response.json();
 
-            if (response.ok) {
-                alert('Akses Tokenmu: ' + result.access_token);
+            if (!response.ok || result.message === "Email Already Exist") {
                 console.log(result);
-                formWisatawan.reset(); // Reset form setelah submit berhasil
-            } else {
                 throw new Error(result.message || 'Gagal melakukan registrasi');
+            } else {
+                alert('Registrasi Wisatawan Berhasil');
+                console.log('Akses Tokenmu: ' + result.access_token);
+                document.cookie = `access_token=${result.access_token}; path=/;`;
+                console.log('Data Wisatawan:', formData);
+                formWisatawan.reset();
+                window.location.href = '../../Wisatawan/HomePage/homePage.html';
             }
         } catch (error) {
             console.error('Error:', error);
@@ -209,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false; // Set isValid to false if phone number is empty
         }
 
-        const formData = {
+        const formDataVendor = {
             emailv: emailVendor,
             passwordv: passwordVendor,
             // confirmPasswordv: confirmPasswordVendor,
@@ -222,31 +227,46 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         try {
+            // Mengirim data ke server
             const response = await fetch('http://localhost:8080/register/vendor', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formDataVendor)
             });
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
             const result = await response.json();
-            alert('Registrasi Vendor berhasil!');
-            console.log(result);
+
+            if (!response.ok || result.message === "Email Already Exist") {
+                console.log(result);
+                throw new Error(result.message || 'Gagal melakukan registrasi');
+            } else {
+                alert('Registrasi Vendor Berhasil');
+                console.log('Akses Tokenmu: ' + result.access_token);
+                document.cookie = `access_token=${result.access_token}; path=/;`;
+                console.log('Data Vendor:', formDataVendor);
+                formVendor.reset();
+                // Redirect ke homePage.html setelah token disimpan di cookie
+                window.location.href = '../HomePage/homePage.html';
+            }
         } catch (error) {
-            console.error('There was a problem with your fetch operation:', error);
-            alert('Registrasi Vendor gagal!');
+            console.error('Error:', error);
+            alert('Registrasi Wisatawan gagal!');
         }
-
-        console.log('Data Vendor:', formData);
     });
-
 });
 
+function getCookie(name) {
+    const cookieArr = document.cookie.split(";");
+    for (let i = 0; i < cookieArr.length; i++) {
+        const cookiePair = cookieArr[i].split("=");
+        if (name === cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+    return null;
+}
 
 function openPage(pageName, elmnt) {
     var i, tabcontent, tablinks;

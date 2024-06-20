@@ -13,13 +13,14 @@ import com.helloIftekhar.springJwt.repository.ProdukRepository;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/control/barang")
+@CrossOrigin
+@RequestMapping
 @RequiredArgsConstructor
 public class BarangController {
     private final BarangRepository barangRepository;
     private final ProdukRepository produkRepository;
 
-    @GetMapping
+    @GetMapping("/control/barang")
     public ResponseEntity<Iterable<BarangModel>> getAllInventory() {
         Iterable<BarangModel> barang = barangRepository.findAll();
         if (!barang.iterator().hasNext()) {
@@ -28,7 +29,7 @@ public class BarangController {
         return new ResponseEntity<>(barang, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/control/barang")
     public ResponseEntity<BarangModel> addInventory(@RequestBody BarangModel barang) {
         Optional<ProdukModel> produkOpt = produkRepository.findById(barang.getProduk().getIdProduk());
         if (produkOpt.isEmpty()) {
@@ -39,7 +40,7 @@ public class BarangController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/control/barang/{id}")
     public ResponseEntity<BarangModel> updateInventoryById(@PathVariable Long id, @RequestBody BarangModel barangUpdate) {
         Optional<BarangModel> optionalBarang = barangRepository.findById(id);
         if (optionalBarang.isPresent()) {
