@@ -44,6 +44,7 @@ public class ProdukController {
             ProdukModel produk = optionalProduk.get();
             produk.setTanggalP(produkUpdate.getTanggalP());
             produk.setLokasi(produkUpdate.getLokasi());
+            produk.setNamaLokasi(produkUpdate.getNamaLokasi());
             produk.setHarga(produkUpdate.getHarga());
             produk.setFoto(produkUpdate.getFoto());
             produk.setKategori(produkUpdate.getKategori());

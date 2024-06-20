@@ -1,10 +1,8 @@
 package com.helloIftekhar.springJwt.model;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.List;
-
 import lombok.*;
 
 @Entity
@@ -25,6 +23,9 @@ public class ProdukModel {
 
     @Column(name = "Lokasi", columnDefinition = "VARCHAR(255)")
     private String lokasi;
+
+    @Column(name = "NamaLokasi", columnDefinition = "VARCHAR(255)")
+    private String namaLokasi;
 
     @Column(name = "Harga", columnDefinition = "DOUBLE")
     private double harga;
