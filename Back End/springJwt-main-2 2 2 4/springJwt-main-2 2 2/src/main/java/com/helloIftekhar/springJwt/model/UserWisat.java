@@ -47,13 +47,17 @@ public class UserWisat implements UserDetails {
     private String nomorTeleponw;
 
     @Enumerated(EnumType.STRING)
-    private Role role = Role.WISATAWAN; // Default role WISATAWAN
+    private Role role = Role.WISATAWAN;
+
+    @Lob
+    @Column(name = "photo", columnDefinition = "blob")
+    private byte[] photow;
 
     @OneToMany(mappedBy = "user")
     private List<TokenWisat> tokens;
 
-    public UserWisat(String emailw, String passwordw, String konfirmasipasswordw, String namaLengkapw,
-                     JenisKelamin jenisKelaminw, Date tanggalLahirw, Kota kotaw, String nomorTeleponw) {
+    public UserWisat(String emailw, String passwordw, String namaLengkapw,
+                     JenisKelamin jenisKelaminw, Date tanggalLahirw, Kota kotaw, String nomorTeleponw, byte[] photow) {
         this.emailw = emailw;
         this.passwordw = passwordw;
         this.namaLengkapw = namaLengkapw;
@@ -61,7 +65,8 @@ public class UserWisat implements UserDetails {
         this.tanggalLahirw = tanggalLahirw;
         this.kotaw = kotaw;
         this.nomorTeleponw = nomorTeleponw;
-        this.role = Role.WISATAWAN; // Set nilai role default WISATAWAN
+        this.photow = photow;
+        this.role = Role.WISATAWAN;
     }
 
     public UserWisat() {
@@ -182,12 +187,16 @@ public class UserWisat implements UserDetails {
         return this.passwordw;
     }
 
-    public enum JenisKelamin {
-        LAKI_LAKI, PEREMPUAN
+    public byte[] getPhotow() {
+        return photow;
     }
 
-    public enum Kota {
-        Jakarta, Bandung, Manokwari, Bali, Yogyakarta, Surabaya, Medan, Makassar, Malang, Lombok, Semarang, Palembang, Manado, Batam, Banjarmasin, Solo, Bogor, Denpasar, Padang, Balikpapan, Pontianak
+    public void setPhotow(byte[] photow) {
+        // Validate photo size
+        if (photow != null && photow.length > 2 * 1024 * 1024) {
+            throw new IllegalArgumentException("Photo size exceeds the limit of 2MB");
+        }
+        this.photow = photow;
     }
 
     public String getId_wisatawan() {
@@ -198,8 +207,15 @@ public class UserWisat implements UserDetails {
         this.id_wisatawan = id_wisatawan;
     }
 
-    public enum Role {
-        WISATAWAN, VENDOR // tambahkan enum role lain jika diperlukan
+    public enum JenisKelamin {
+        LAKI_LAKI, PEREMPUAN
     }
 
+    public enum Kota {
+        Jakarta, Bandung, Manokwari, Bali, Yogyakarta, Surabaya, Medan, Makassar, Malang, Lombok, Semarang, Palembang, Manado, Batam, Banjarmasin, Solo, Bogor, Denpasar, Padang, Balikpapan, Pontianak
+    }
+
+    public enum Role {
+        WISATAWAN, VENDOR
+    }
 }

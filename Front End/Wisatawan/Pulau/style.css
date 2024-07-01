@@ -69,7 +69,6 @@ button.navbar-toggler i {
 }
 
 .container-fluid a {
-  color: white;
   border-radius: 20px;
   margin-right: 0;
   transition: 1s;
@@ -126,7 +125,7 @@ button.navbar-toggler i {
 
 /* Dashboard */
 .dashboard {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../Aset/img/Pemandangan-Gunung.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("../Aset/img/Pemandangan-Pulau.jpg");
   background-repeat: no-repeat;
   height: 57vh;
   background-size: cover;

@@ -69,7 +69,6 @@ button.navbar-toggler i {
 }
 
 .container-fluid a {
-  color: white;
   border-radius: 20px;
   margin-right: 0;
   transition: 1s;
@@ -258,7 +257,6 @@ button.navbar-toggler i {
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 1 rem 0;
-  background-color:  ;
 }
 
 .footer-section h2{

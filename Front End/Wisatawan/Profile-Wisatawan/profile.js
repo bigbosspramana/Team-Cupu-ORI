@@ -1,3 +1,54 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch email from the database
+    fetchEmail()
+        .then(emailw => {
+            if (emailw) {
+                fetchProfile(emailw);
+            } else {
+                console.error('No email found');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching email:', error);
+        });
+});
+
+function fetchEmail() {
+    return fetch('/path/to/endpoint/for/email') // Update with the actual endpoint
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Assuming the email is returned in the 'email' field
+            return data.email;
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
+
+function fetchProfile(emailw) {
+    fetch(`/profile/wisatawan/${emailw}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('wisatawan-name').value = data.name;
+            document.getElementById('wisatawan-number').value = data.number;
+            document.getElementById('wisatawan-address').value = data.address;
+            document.getElementById('wisatawan-city').value = data.city;
+            // Add more fields as needed
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
 
 const selectImage = document.querySelector('.select-image');
 const inputFile = document.querySelector('#file');
@@ -141,3 +192,38 @@ window.onclick = function(event) {
 		modal.style.display = "none";
 	}
 }
+
+document.getElementById('home-page').addEventListener('click', function() {
+    // Replace 'index.html' with the URL of the home page
+	window.location.href = '../HomePage(Login)/homePage.html';
+});
+
+document.getElementById('transaksi').addEventListener('click', function() {
+    // Replace 'index.html' with the URL of the home page
+    window.location.href = '../detail-transaksi/transaksi.html';
+});
+
+document.getElementById('pulau').addEventListener('click', function() {
+    // Replace 'index.html' with the URL of the home page
+    window.location.href = '../Pulau/pulau.html';
+});
+
+document.getElementById('pantai').addEventListener('click', function() {
+    // Replace 'index.html' with the URL of the home page
+    window.location.href = '../Pantai/pantai.html';
+});
+
+document.getElementById('gunung').addEventListener('click', function() {
+    // Replace 'index.html' with the URL of the home page
+    window.location.href = '../gunung/gunung.html';
+});
+
+document.getElementById('profile').addEventListener('click', function() {
+    // Replace 'index.html' with the URL of the home page
+    window.location.href = '../Profile-Wisatawan/profile.html';
+});
+
+document.getElementById('wisata').addEventListener('click', function() {
+    // Replace 'index.html' with the URL of the home page
+    window.location.href = '../wisata/wisata.html';
+});

@@ -20,7 +20,4 @@ application:
       secret-key: 4bb6d1dfbafb64a681139d1586b6f1160d18159afd57c8c79136d7490630407c
       access-token-expiration: 86400000
       refresh-token-expiration: 604800000
-<<<<<<< HEAD
-      clock-skew: 60000000000000
-=======
->>>>>>> 54cde649e4dafc1254df685c73645ad2da78b060
+      clock-skew: 60000000000000  # dalam detik

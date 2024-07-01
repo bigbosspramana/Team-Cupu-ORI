@@ -15,7 +15,7 @@
     <title>Judul Wisata</title>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
     <!-- NavBar -->
     <div class="dashboard">
         <nav class="navbar navbar-expand-lg">
@@ -25,19 +25,22 @@
                     <p>Wisata Indonesia</p>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="home-page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" id="home-page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="populer" href="">Populer</a>
+                            <a class="nav-link" id="wisata" href="">wisata</a>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" id="transaksi" href="#">Transaksi</a>
+                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Pariwisata
                             </a>
@@ -55,8 +58,13 @@
                             </ul>
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-secondary" style="margin-right: 12px;">Daftar</button>
-                    <button type="button" id="tologin" class="btn btn-primary">Daftar</button>
+                    <div class="sukasukasaya">
+                        <div class="col-sm-1 col-lg-2">
+                            <div class="foto-profile"  id="profile">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -71,8 +79,8 @@
                 <div class="thumbnail" onclick="changeImage('https://via.placeholder.com/500')">
                     <img src="https://via.placeholder.com/100" alt="Thumbnail 1">
                 </div>
-                <div class="thumbnail" onclick="changeImage('image2.jpg')">
-                    <img src="image2-thumbnail.jpg" alt="Thumbnail 2">
+                <div class="thumbnail" onclick="changeImage('../Aset/img/Bandung.jpg')">
+                    <img src="../Aset/img/Bandung.jpg" alt="Thumbnail 2">
                 </div>
                 <div class="thumbnail" onclick="changeImage('image3.jpg')">
                     <img src="image3-thumbnail.jpg" alt="Thumbnail 3">
@@ -89,6 +97,60 @@
         </div>
     </div> <!-- Div Kontainer -->
 
+    <div class="kontainer-2">
+        <div class="container-0">
+            <h1>List Vendor</h1>
+            <table id="listTable">
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Lokasi</th>
+                        <th>Barang yang Disediakan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[Nama]</td>
+                        <td>[Lokasi Vendor]</td>
+                        <td>[Barang Yang disediakan]</td>
+                        <td><button onclick="showDetail('Nama-Barang', 'Lokasi', 'Nama Barang')">Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>[Nama]</td>
+                        <td>[Lokasi Vendor]</td>
+                        <td>[Barang Yang disediakan]</td>
+                        <td><button onclick="showDetail('Nama-Barang', 'Lokasi', 'Nama Barang')">Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>[Nama]</td>
+                        <td>[Lokasi Vendor]</td>
+                        <td>[Barang Yang disediakan]</td>
+                        <td><button onclick="showDetail('Nama-Barang', 'Lokasi', 'Nama Barang')">Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>[Nama]</td>
+                        <td>[Lokasi Vendor]</td>
+                        <td>[Barang Yang disediakan]</td>
+                        <td><button onclick="showDetail('Nama-Barang', 'Lokasi', 'Nama Barang')">Detail</button></td>
+                    </tr>
+                    <tr>
+                        <td>[Nama]</td>
+                        <td>[Lokasi Vendor]</td>
+                        <td>[Barang Yang disediakan]</td>
+                        <td><button onclick="showDetail('Nama-Barang', 'Lokasi', 'Nama Barang')">Detail</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="detailModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="detailText"></p>
+            </div>
+        </div>
+    </div>  
     <!-- footer -->
     <div class="footer-section">
         <div class="footer-item">
